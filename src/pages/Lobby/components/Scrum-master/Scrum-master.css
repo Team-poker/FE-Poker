@@ -1,0 +1,41 @@
+.dealer-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.dealer-picture {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: #60dabf;
+  text-align: center;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dealer-initials {
+  display: block;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 62px;
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dealer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dealer-label {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
