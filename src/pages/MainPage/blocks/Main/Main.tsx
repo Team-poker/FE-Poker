@@ -17,7 +17,6 @@ const Main = () => {
       name: 'Connect',
     },
   ];
-
   return (
     <div className="main-wrapper">
       <div className="main">

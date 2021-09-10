@@ -1,14 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import './Modal.scss';
 
 interface ModalProps {
-   onBackDropClick: () => void;
+    setActive: (arg0: boolean) => void;
+    active: boolean;
+    children: any
 }
 
-const Modal = ({ onBackDropClick }:ModalProps) => {
-  return ReactDOM.createPortal(
-    <div onClick={onBackDropClick} />, document.getElementById('modal-root'),
+const Modal = ({ active, setActive, children }:ModalProps) => {
+  return (
+    <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
+      <div className={active ? 'modal__content active' : 'modal__content'} onClick={(e: any) => e.stopPropagation()}>
+        {children}
+      </div>
+
+    </div>
   );
 };
 
