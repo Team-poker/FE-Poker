@@ -2,7 +2,6 @@ import './Main.scss';
 import React, { useState } from 'react';
 import Button from '../../../../components/Button/Button';
 import Input from '../../../../components/Input/Input';
-import Modal from '../../../../components/Modal/Modal';
 
 const Main = () => {
   const text = 'Poker';
@@ -21,9 +20,9 @@ const Main = () => {
     <div className="main-wrapper">
       <div className="main">
         <div className="main-part">
-          <div><img className="main-photo" src={require('../../../../../public/Frame.svg')} alt="cannot display" /></div>
+          <div><img className="main-photo" src={require('../../../../../assets/Frame.svg')} alt="cannot display" /></div>
           <div className="main-text">
-            <img className="line-photo" src={require('../../../../../public/Line.svg')} alt="it's a line" />
+            <img className="line-photo" src={require('../../../../../assets/Line.svg')} alt="it's a line" />
             {text}
             <div className="poker">{poker}</div>
           </div>

@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import './Button.scss';
 
 const Button = (props: any) => {
-  const { name } = props;
+  const { name, disabled } = props;
   return (
-    <div>
-      <button className="button">
+    <>
+      <button disabled={disabled} className={`button ${disabled && 'disabled'}`}>
         {name}
       </button>
-    </div>
+    </>
   );
 };
 

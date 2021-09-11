@@ -3,10 +3,23 @@
   z-index: 1;
   margin-top: 100px;
   width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .footer-photo {
-  padding-top: 50px;
   margin-right: 100px;
   z-index: 999;
   cursor: pointer;
+  color: #EEEEEE;
+}
+.footer-github {
+  width: 40px;
+  height: 40px;
+  background-color: #EEEEEE;
+  border-radius: 50px;
+}
+.footer__year {
+  font-size: 24px;
+  color: #EEEEEE;
 }
