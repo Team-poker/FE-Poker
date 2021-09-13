@@ -54,7 +54,15 @@ const MainPage = () => {
       name: 'Cancel',
     },
   ];
-  const [activeModal, setActiveModal] = useState(true);
+  const [activeModal, setActiveModal] = useState(false);
+  const handleImageLoad = (event: any) => {
+    if (event.target.files && event.target.files[0]) {
+      const img = event.target.files[0];
+      
+    }
+
+  }
+
   return (
     <>
       <Header />
@@ -92,7 +100,7 @@ const MainPage = () => {
           <label>
             <span className="input__text">Image:</span>
             <br />
-            <input className="input__photo" type="file" placeholder="Choose file" disabled />
+            <input onChange={(event) => handleImageLoad(event)} className="input__photo" type="file" />
             <span className="button__modal"><Button className="button__modal" name={buttonsNames[2].name} /></span>
           </label>
         </form>
