@@ -6,18 +6,24 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-
+    'react-app',
+    'airbnb-typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 2020,
     sourceType: 'module',
+    project: {
+      "extends": "./tsconfig.json",
+      "include": [
+        "src/**/*.ts",
+        "test/**/*.ts",
+        "typings/**/*.ts"
+      ]
+    }
   },
   plugins: [
     'react',
@@ -31,6 +37,23 @@ module.exports = {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'no-unused-vars': 'off',
-
+    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': ['error'],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
+  settings: {
+    "import/resolver": {
+    "typescript": {}
+    }
+  }
 };

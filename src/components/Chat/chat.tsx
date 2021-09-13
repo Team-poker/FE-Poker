@@ -1,10 +1,13 @@
-import { io } from 'socket.io-client';
+import React from 'react';
+import MessageForm  from './MessageForm/MessageForm';
+import MessagesList from './MessagesList/MessagesList'
+import s from './Chat.module.scss'
 
-const socket = io('ws://localhost:3000');
-
-socket.on('connect', () => {
-  socket.send('Hello!');
-});
-socket.on('message', (data) => {
-  console.log(data);
-});
+export const Chat = () => {
+  return (
+    <div className={s.chat}>
+      <MessagesList />
+      <MessageForm />
+    </div>
+  )
+}

@@ -1,0 +1,37 @@
+.member {
+  width: 200px;
+  height: 40px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 5px;
+  &_avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #60DABF;
+    color: #fff;
+    font-weight: 700;
+  }
+  &_block_btn {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: none;
+    background: url(../../assets/svg/Vector.svg) center no-repeat;
+    background-size: contain;
+  }
+  &_position {
+    font-size: 7px;
+    margin: 0;
+  }
+  &_name {
+    margin: 9px 0 2px 0;
+  }
+
+}
