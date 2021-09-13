@@ -1,0 +1,133 @@
+.button-link {
+  margin-left: -400px;
+}
+.form__modal {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.button-modal {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  position: absolute;
+  top: 490px;
+  left: 400px;
+}
+
+.modal__window {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.lobby__modal {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+  color: #000000;
+  text-align: left;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+.input__text {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+.span__modal {
+  font-family: Ruda, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  text-align: left;
+  position: absolute;
+  top: 30px;
+  left: 400px;
+}
+.input__modal {
+  width: 330px;
+  height: 32px;
+  background: #FFFFFF;
+  border: 1px solid #2B3A67;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 0px 10px;
+}
+.input__photo::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.input__photo::before {
+  content: "Choose file";
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  background: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 0px 10px;
+  width: 150px;
+  height: 34px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  align-items: center;
+  text-align: center;
+}
+.input__photo:hover::before {
+  border-color: black;
+}
+
+.button__photo {
+  display: inline-block;
+  height: 15px;
+  width: 160px;
+}
+.modal__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  position: relative;
+}
+.cancel__modal {
+  margin-left: -100px;
+}
+.button__modal {
+  width: 100px;
+  height: 10px;
+  display: inline-block;
+  position: absolute;
+  margin-left: -210px;
+  top: 399px;
+}
+.switch__modal {
+  margin-left: 60px;
+}
