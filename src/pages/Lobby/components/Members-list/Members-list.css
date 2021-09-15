@@ -1,0 +1,9 @@
+.members-headline {
+  text-align: center;
+}
+
+.members-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

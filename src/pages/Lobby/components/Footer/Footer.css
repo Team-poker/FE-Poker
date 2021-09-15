@@ -1,0 +1,9 @@
+.lobby-footer {
+  flex-shrink: 0;
+}
+
+.footer-line {
+  width: 100%;
+  height: 70px;
+  background-color: #2b3a67;
+}
