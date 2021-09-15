@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 
-import "./Game-link.css";
+import "./Game-link.scss";
 
 const GameLink = () => {
   const handleCopyLink = () => {
@@ -13,7 +13,7 @@ const GameLink = () => {
       <h2>Link to lobby:</h2>
       <form className="link">
         <input type="text" value="http://pockerplanning.c..."></input>
-        <Button onClick={handleCopyLink} text="Copy" />
+        <Button onClick={handleCopyLink} text="Copy" class="blue-btn" />
       </form>
     </div>
   );

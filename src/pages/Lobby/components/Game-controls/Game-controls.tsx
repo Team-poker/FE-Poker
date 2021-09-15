@@ -7,8 +7,8 @@ import "./Game-controls.css";
 const GameControls = () => {
   return (
     <div className="game-controls">
-      <Button text="Start game" className="blue-btn" />
-      <Button text="Cancel game" className="white-btn" />
+      <Button text="Start game" class="blue-btn" />
+      <Button text="Cancel game" class="white-btn" />
     </div>
   );
 };
