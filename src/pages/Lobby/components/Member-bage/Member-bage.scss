@@ -1,0 +1,46 @@
+.member-bage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  padding: 1rem;
+}
+
+.member-picture {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: #60dabf;
+  text-align: center;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.member-initials {
+  display: block;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 62px;
+  color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto;
+  font-weight: 300;
+}
+
+.delete-member-icon {
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,32 @@
+.blue-btn {
+  background-color: #2b3a67;
+  border: 2px solid #2b3a67;
+  outline: none;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: Ruda, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.blue-btn:hover {
+  background-color: #496a81;
+  border: 2px solid #496a81;
+}
+
+.white-btn {
+  background-color: transparent;
+  border: 2px solid #2b3a67;
+  outline: none;
+  text-decoration: none;
+  color: #2b3a67;
+  padding: 10px 25px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: Ruda, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
