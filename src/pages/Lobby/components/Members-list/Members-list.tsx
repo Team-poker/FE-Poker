@@ -3,7 +3,7 @@ import React from "react";
 import { players } from "../../../../members-data";
 import MemberBage from "../Member-bage/Member-bage";
 
-import "./Members-list.css";
+import "./Members-list.scss";
 
 const MembersList = () => {
   const members = players.filter((player) => player.gameRole !== "dealer");
