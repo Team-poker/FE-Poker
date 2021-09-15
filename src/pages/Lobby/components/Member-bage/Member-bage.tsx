@@ -20,6 +20,12 @@ const MemberBage = (props: IBageProps) => {
         <p className="member-name">{`${props.firstName} ${props.lastName}`}</p>
         <span className="dealer-title">{props.jobPosition}</span>
       </div>
+      <div className="delete-member-icon">
+        <img
+          src={require("../../../../../public/delete-player-item.svg")}
+          alt="Delete member"
+        />
+      </div>
     </div>
   );
 };
