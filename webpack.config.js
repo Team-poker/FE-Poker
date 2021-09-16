@@ -47,14 +47,7 @@ const config = {
         use: [
           stylesHandler, 
           'css-modules-typescript-loader', 
-          {      
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[local]__[hash:base64:5]'
-              }
-            }
-          }, 
+          'css-loader', 
           'sass-loader'],
       },
       {
