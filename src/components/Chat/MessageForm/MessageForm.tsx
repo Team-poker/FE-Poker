@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect, MapDispatchToProps } from 'react-redux';
 import { createMessage } from '../../../redux/actions';
-import s from './MessageForm.module.scss'
+import './MessageForm.scss'
 
-const MessageForm = (props: any) => {
+const MessageForm = ({currentUser, createMessage, socket}: any) => {
   const [text, setText] = useState('');
 
   const submitHandler = (event: any) => {
@@ -13,11 +13,15 @@ const MessageForm = (props: any) => {
       return
     }
 
+    const member = currentUser;
+
     const newMessage = {
-      id: Date.now(), 
-      text
+      id: Date.now(),
+      member,
+      text,
     }
-    props.createMessage(newMessage);
+    createMessage(newMessage);
+    socket.emit('chat', newMessage)
     setText('')
   };
 
@@ -27,16 +31,16 @@ const MessageForm = (props: any) => {
   }
 
   return (
-    <form action="" onSubmit={submitHandler} className={s.form}>
+    <form action="" onSubmit={submitHandler} className='form'>
       <div className="form-group">
         <input 
           type="text" 
-          className={s.form_input} 
+          className='form_input' 
           value={text}
           name='text'
           placeholder='Сообщение'
           onChange={changeInputHandler}/>
-        <button className={s.form_submit_btn} type="submit">Отправить</button>
+        <button className='form_submit_btn' type="submit">Отправить</button>
       </div>
     </form>
   );
@@ -46,5 +50,11 @@ const mapDispatchToProps = {
   createMessage
 }
 
-export default connect(null, mapDispatchToProps)(MessageForm);
+const mapStateToProps = (state: any) => {
+  return {
+    currentUser: state.currentUser
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
 
