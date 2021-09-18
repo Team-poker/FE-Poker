@@ -45,18 +45,10 @@ const config = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          stylesHandler,
-          "css-modules-typescript-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                localIdentName: "[local]__[hash:base64:5]",
-              },
-            },
-          },
-          "sass-loader",
-        ],
+          stylesHandler, 
+          'css-modules-typescript-loader', 
+          'css-loader', 
+          'sass-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
