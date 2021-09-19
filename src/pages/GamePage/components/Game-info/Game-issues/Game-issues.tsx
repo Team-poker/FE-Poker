@@ -4,6 +4,7 @@ import { IIssue, IState } from "../../../../../ts/interfaces/app_interfaces";
 import Issue from "./Issue/Issue";
 
 const GameIssues = (issues: IIssue[]) => {
+  console.log(issues);
   const issuesList = issues.map((issue: IIssue) => {
     return <Issue name={issue.issueTitle} />;
   });
