@@ -22,7 +22,7 @@ const MainPage = ({socket, addCurrentUser}: any) => {
   const [formValid, setFormValid] = useState(false);
   const blurHandler = (e: any) => {
     switch (e.target.name) {
-      case 'name':
+      case 'firstName':
         setNameDirty(true);
         break;
       default:
@@ -32,10 +32,13 @@ const MainPage = ({socket, addCurrentUser}: any) => {
     switch (e.target.name) {
       case 'firstName':
         setfirstName(e.target.value);
+        break;
       case 'lastName':
         setLastName(e.target.value);
+        break;
       case 'jobPosition':
         setjobPosition(e.target.value);
+        break;
     }
 
     const re = new RegExp('^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$');
@@ -68,7 +71,7 @@ const MainPage = ({socket, addCurrentUser}: any) => {
 
     // window.localStorage.setItem
 
-    history.push("/chat");
+    history.push("/lobby");
   };
 
   useEffect(() => {
@@ -99,7 +102,7 @@ const MainPage = ({socket, addCurrentUser}: any) => {
   const handleImageLoad = (event: any) => {
     if (event.target.files && event.target.files[0]) {
       const img = event.target.files[0];
-      
+
     }
 
   }

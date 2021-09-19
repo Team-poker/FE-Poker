@@ -14,8 +14,8 @@ const App = () => (
       <Route path='/' exact>
         <MainPage socket={socket} />
       </Route>
-      <Route path='/chat'>
-        <Chat socket={socket} />
+      <Route path='/lobby'>
+        {/*<Chat socket={socket} />*/}
       </Route>
     </Switch>
   </Router>
