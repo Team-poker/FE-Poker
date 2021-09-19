@@ -1,0 +1,9 @@
+.game-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 90vw;
+  margin: 0 auto;
+  font-family: Ruda, sans-serif;
+}

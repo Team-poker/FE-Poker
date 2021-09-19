@@ -9,7 +9,7 @@ const ScrumMasterBlock = () => {
   const initials = dealer.firstName.charAt(0) + dealer.lastName.charAt(0);
 
   return (
-    <>
+    <div className="scrum-master">
       <p className="dealer-title">Scrum master:</p>
       <div className="dealer-block">
         <div className="dealer-picture">
@@ -21,7 +21,7 @@ const ScrumMasterBlock = () => {
           <span className="dealer-title">{dealer.jobPosition}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

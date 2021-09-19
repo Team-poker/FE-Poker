@@ -1,10 +1,12 @@
-import { combineReducers } from 'redux';
-import { messagesReducer } from './messagesReducer';
-import { usersReducer } from './usersReducer'
+import { combineReducers } from "redux";
+import { messagesReducer } from "./messagesReducer";
+import { usersReducer } from "./usersReducer";
+import { issuesReducer } from "./issuesReducer";
 
 const rootReducer = combineReducers({
   messages: messagesReducer,
-  currentUser: usersReducer
+  currentUser: usersReducer,
+  issues: issuesReducer,
 });
 
 export default rootReducer;
