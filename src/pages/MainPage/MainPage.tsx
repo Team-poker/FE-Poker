@@ -23,7 +23,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
   const [formValid, setFormValid] = useState(false);
   const blurHandler = (e: any) => {
     switch (e.target.name) {
-      case "name":
+      case "firstName":
         setNameDirty(true);
         break;
       default:
@@ -33,10 +33,13 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     switch (e.target.name) {
       case "firstName":
         setfirstName(e.target.value);
+        break;
       case "lastName":
         setLastName(e.target.value);
+        break;
       case "jobPosition":
         setjobPosition(e.target.value);
+        break;
     }
 
     const re = new RegExp("^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$");
