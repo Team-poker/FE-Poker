@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 import { IIssue, IState } from "../../../../../ts/interfaces/app_interfaces";
 import Issue from "./Issue/Issue";
 
-const GameIssues = (issues: IIssue[]) => {
-  console.log(issues);
+const GameIssues = ({ issues }: any) => {
   const issuesList = issues.map((issue: IIssue) => {
-    return <Issue name={issue.issueTitle} />;
+    return <Issue name={issue.issueTitle} key={issue.issueTitle} />;
   });
   return <ul className="game-issues">{issuesList}</ul>;
 };
