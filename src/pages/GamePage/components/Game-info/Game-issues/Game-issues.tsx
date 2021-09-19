@@ -1,5 +1,4 @@
 import React from "react";
-
 import { connect } from "react-redux";
 import { IIssue, IState } from "../../../../../ts/interfaces/app_interfaces";
 import Issue from "./Issue/Issue";

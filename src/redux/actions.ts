@@ -1,5 +1,15 @@
-import { ICard, IMessage, IUser } from "../ts/interfaces/app_interfaces";
-import { ADD_CURRENT_USER, CREATE_CARDS, CREATE_MESSAGE } from "./types";
+import {
+  ICard,
+  IMessage,
+  IUser,
+  IIssue,
+} from "../ts/interfaces/app_interfaces";
+import {
+  ADD_CURRENT_USER,
+  CREATE_CARDS,
+  CREATE_MESSAGE,
+  CREATE_ISSUE,
+} from "./types";
 
 export const createMessage = (message: IMessage) => {
   return {
