@@ -33,8 +33,13 @@ export interface IIssue {
   link: string;
 }
 
-//Actions:
+export interface ICard {
+  title: string;
+  count: number;
+  storyPoint: true;
+}
 
+//Actions:
 export interface ICreateIssue {
   type: typeof CREATE_ISSUE;
   payload: IIssue;
