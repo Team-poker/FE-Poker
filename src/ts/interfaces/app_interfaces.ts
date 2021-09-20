@@ -1,3 +1,5 @@
+import {CREATE_CARDS} from "src/redux/types";
+
 export interface IState {
   messages?: Array<IMessage>
   currentUser?: IUser | {}
@@ -28,4 +30,8 @@ export interface ICard {
   title: string,
   count: number,
   storyPoint: true,
+}
+export interface ICreateCards {
+  type: typeof CREATE_CARDS,
+  payload: ICard
 }

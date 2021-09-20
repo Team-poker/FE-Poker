@@ -65,7 +65,8 @@ const MainPage = ({socket, addCurrentUser}: any) => {
       firstName: firstName,
       lastName: lastName,
       jobPosition: jobPosition,
-      roomName: 'testroom'
+      roomName: 'testroom',
+      dealer: true
     }
     addCurrentUser(newUser);
 
