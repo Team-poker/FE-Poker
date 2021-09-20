@@ -9,6 +9,7 @@ import GameLink from "./components/Game-link/Game-link";
 import GameControls from "./components/Game-controls/Game-controls";
 
 import "./Lobby.css";
+import GameSettings from "./components/Game-settings/Game-settings";
 
 const Lobby = () => {
   return (
@@ -21,6 +22,7 @@ const Lobby = () => {
           <GameLink />
           <GameControls />
           <MembersList />
+          <GameSettings />
         </div>
       </main>
       <Footer />

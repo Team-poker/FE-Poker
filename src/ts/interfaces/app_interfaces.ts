@@ -23,3 +23,9 @@ export interface IMember {
   jobPosition: string,
   image?: string
 }
+
+export interface ICard {
+  title: string,
+  count: number,
+  storyPoint: true,
+}

@@ -1,10 +1,11 @@
 import React from 'react';
+import Cards from "../Card/Card";
 
 const GameSettings = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Cards />
+        </>
     );
 };
 
