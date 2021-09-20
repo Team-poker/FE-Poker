@@ -5,6 +5,7 @@ const GameSettings = () => {
     return (
         <>
             <Cards />
+
         </>
     );
 };

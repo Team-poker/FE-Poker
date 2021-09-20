@@ -20,7 +20,7 @@ const Lobby = () => {
         <div className="wrapper">
           <LobbyTitle />
           <ScrumMasterBlock />
-          <GameLink />
+          {/*<GameLink />*/}
           <GameControls />
           <MembersList />
           <IssuesList />

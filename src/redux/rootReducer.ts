@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   messages: messagesReducer,
   currentUser: usersReducer,
   issues: issuesReducer,
+  cards: cardsReducer,
 });
 
 export default rootReducer;

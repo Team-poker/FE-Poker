@@ -1,4 +1,4 @@
-import { CREATE_ISSUE } from "src/redux/types.ts";
+import { CREATE_ISSUE, CREATE_CARDS } from "src/redux/types.ts";
 
 export interface IState {
   messages?: Array<IMessage>;
@@ -43,4 +43,8 @@ export interface ICard {
 export interface ICreateIssue {
   type: typeof CREATE_ISSUE;
   payload: IIssue;
+}
+export interface ICreateCards {
+  type: typeof CREATE_CARDS;
+  payload: ICard;
 }
