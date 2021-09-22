@@ -29,7 +29,8 @@ export interface IMember {
 export interface ICard {
   title: string,
   count: number,
-  storyPoint: true,
+  storyPoint: string,
+  image: string
 }
 export interface ICreateCards {
   type: typeof CREATE_CARDS,
