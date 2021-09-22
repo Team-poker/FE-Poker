@@ -35,7 +35,7 @@ const LobbyTitle = () => {
           <h1 className="lobby-title">{lobbyTitle}</h1>
           <span className="edit-title" onClick={handleTitleEdit}>
             <img
-              src={require("../../../../../public/pen-icon.svg")}
+              src={require("../../../../../public/pen.svg")}
               alt="Edit title"
             ></img>
           </span>

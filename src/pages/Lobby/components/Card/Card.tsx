@@ -7,12 +7,13 @@ import "./Card.scss";
 
 
 export const Cards = ({ cards }: any) => {
-    const cardsList = cards.map((card: ICard) => (
+    const cardsList = cards.map((card: ICard, i: ICard) => (
         <CardItem
             title={card.title}
             count={card.count}
             storyPoint={card.storyPoint}
-            key={card.title + card.count + card.storyPoint}
+            image={card.image}
+            key={card.title + card.count + card.storyPoint + card.image}
         />
     ));
     return (

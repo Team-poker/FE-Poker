@@ -37,6 +37,7 @@ export interface ICard {
   title: string;
   count: number;
   storyPoint: true;
+  image: string;
 }
 
 //Actions:
