@@ -1,4 +1,17 @@
 .game-vote {
   border-left: 1px solid gray;
   width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.voting-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  & div {
+    font-weight: 700;
+  }
 }

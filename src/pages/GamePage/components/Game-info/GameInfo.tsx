@@ -12,7 +12,6 @@ const GameInfo = () => {
       <GameTitle />
       <GameState />
       <GameIssues />
-      <Voting-Cards />
     </div>
   );
 };
