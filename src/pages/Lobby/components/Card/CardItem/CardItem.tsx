@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import './CardItem.scss';
 
+
 export interface ItemProps {
     title: string,
     count: number,
-    image: string,
-    storyPoint: string
+    image: any,
+    storyPoint: string,
+    id: string
 }
 
 const CardItem = ({image, title } : ItemProps) => {
@@ -40,12 +42,14 @@ const CardItem = ({image, title } : ItemProps) => {
                 <div className="title-card">{title}
                     <div className="pen-card" onClick={handleTitleEdit}/>
                 </div>
-                <div className="main-card">{image}</div>
+                <div className="main-card">
+                    <img className="main-card__image" src={image} alt=""/>
+                </div>
                     <div className="revert-card">{title}</div>
-                <div className="sp-card">{image}</div>
                 </>
             )}
             {isEditing && (
+
                 <form
                     className="edit-title-form"
                     onSubmit={handleTitleConfirm}
@@ -57,6 +61,7 @@ const CardItem = ({image, title } : ItemProps) => {
                         autoFocus
                         onChange={handleTitleInput}
                     />
+
                     <button type="submit" className="confirm-title">
                     </button>
                     <button type="reset" className="reset-title">

@@ -10,12 +10,10 @@
     box-shadow: 0 0.5rem 1rem grey;
   }
 }
-.main-card {
-  background-image: url("../../../../../../public/cup.svg");
+.main-card__image {
+  //background-image: url("../../../../../../public/cup.svg");
   height: 50px;
   width: 50px;
-  background-position: center;
-  background-size: cover;
   margin: 25px;
 }
 //.sp-card {

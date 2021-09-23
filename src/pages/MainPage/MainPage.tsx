@@ -15,8 +15,6 @@ const MainPage = ({socket, addCurrentUser}: any) => {
   const [firstName, setfirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [jobPosition, setjobPosition] = useState('');
-
-
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState('Enter your name!');
   const [formValid, setFormValid] = useState(false);
@@ -48,7 +46,6 @@ const MainPage = ({socket, addCurrentUser}: any) => {
       setNameError('');
     }
   };
-
   let history = useHistory();
 
   const sendData = (e: any) => {
@@ -69,10 +66,9 @@ const MainPage = ({socket, addCurrentUser}: any) => {
       dealer: true
     }
     addCurrentUser(newUser);
-
-    // window.localStorage.setItem
-
+    // window.localStorage.setItem;
     history.push("/lobby");
+
   };
 
   useEffect(() => {
@@ -100,13 +96,6 @@ const MainPage = ({socket, addCurrentUser}: any) => {
     },
   ];
   const [activeModal, setActiveModal] = useState(false);
-  const handleImageLoad = (event: any) => {
-    if (event.target.files && event.target.files[0]) {
-      const img = event.target.files[0];
-
-    }
-
-  }
 
   return (
     <>
@@ -145,8 +134,11 @@ const MainPage = ({socket, addCurrentUser}: any) => {
           <label>
             <span className="input__text">Image:</span>
             <br />
-            <input onChange={(event) => handleImageLoad(event)} className="input__photo" type="file" />
-            <span className="button__modal"><Button className="button__modal" name={buttonsNames[2].name} /></span>
+            <input className="input__photo" type="file"/>
+                    <span className="button__modal">
+                      <Button
+                         className="button__modal" name={buttonsNames[2].name} />
+                    </span>
           </label>
           <div className="modal__buttons">
           <span className="cancel__modal" onClick={() => setActiveModal(false)}>

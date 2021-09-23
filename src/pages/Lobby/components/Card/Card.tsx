@@ -7,15 +7,17 @@ import "./Card.scss";
 
 
 export const Cards = ({ cards }: any) => {
-    const cardsList = cards.map((card: ICard, i: ICard) => (
-        <CardItem
+     const cardsList = cards.map((card: ICard) => {
+        return <CardItem
             title={card.title}
             count={card.count}
             storyPoint={card.storyPoint}
             image={card.image}
-            key={card.title + card.count + card.storyPoint + card.image}
+            id={card.id}
+            key={card.title + card.count + card.storyPoint + card.image + card.id}
         />
-    ));
+    });
+
     return (
         <section className="cards">
             <h3 className="cards-info">Add card values:</h3>

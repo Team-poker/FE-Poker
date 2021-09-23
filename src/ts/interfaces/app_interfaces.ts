@@ -30,7 +30,8 @@ export interface ICard {
   title: string,
   count: number,
   storyPoint: string,
-  image: string
+  image: string,
+  id: string
 }
 export interface ICreateCards {
   type: typeof CREATE_CARDS,
