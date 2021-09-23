@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { BrowserRouter } = require("react-router-dom");
 const { Route } = require("react-router-dom");
 const { Link } = require("react-router-dom");
+const CopyPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === "production";
 const stylesHandler = isProduction
@@ -27,7 +28,14 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
-
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'public/images'),
+          to:   path.resolve(__dirname, 'dist/images')
+        }
+      ]
+    })
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/
   ],
@@ -45,9 +53,9 @@ const config = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          stylesHandler, 
-          'css-modules-typescript-loader', 
-          'css-loader', 
+          stylesHandler,
+          'css-modules-typescript-loader',
+          'css-loader',
           'sass-loader'],
       },
       {
@@ -59,6 +67,7 @@ const config = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
   },
+
 };
 
 module.exports = () => {
@@ -70,4 +79,5 @@ module.exports = () => {
     config.mode = "development";
   }
   return config;
+
 };

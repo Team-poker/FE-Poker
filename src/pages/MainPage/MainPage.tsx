@@ -12,12 +12,9 @@ import { connect, useDispatch } from "react-redux";
 import { addCurrentUser } from "../../redux/actions";
 
 const MainPage = ({ socket, addCurrentUser }: any) => {
-  const history = useHistory();
-
   const [firstName, setfirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobPosition, setjobPosition] = useState("");
-
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState("Enter your name!");
   const [formValid, setFormValid] = useState(false);
@@ -73,9 +70,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
       dealer: true,
     };
     addCurrentUser(newUser);
-
-    // window.localStorage.setItem
-
+    // window.localStorage.setItem;
     history.push("/lobby");
   };
 
@@ -104,11 +99,6 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     },
   ];
   const [activeModal, setActiveModal] = useState(false);
-  const handleImageLoad = (event: any) => {
-    if (event.target.files && event.target.files[0]) {
-      const img = event.target.files[0];
-    }
-  };
 
   return (
     <>
@@ -170,11 +160,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
           <label>
             <span className="input__text">Image:</span>
             <br />
-            <input
-              onChange={(event) => handleImageLoad(event)}
-              className="input__photo"
-              type="file"
-            />
+            <input className="input__photo" type="file" />
             <span className="button__modal">
               <Button className="button__modal" name={buttonsNames[2].name} />
             </span>

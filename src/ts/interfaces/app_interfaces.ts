@@ -36,14 +36,9 @@ export interface IIssue {
 export interface ICard {
   title: string;
   count: number;
-  storyPoint: true;
+  storyPoint: string;
   image: string;
-}
-
-//Actions:
-export interface ICreateIssue {
-  type: typeof CREATE_ISSUE;
-  payload: IIssue;
+  id: string;
 }
 export interface ICreateCards {
   type: typeof CREATE_CARDS;
