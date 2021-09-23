@@ -7,6 +7,9 @@ import GameVote from "./components/Game-vote/GameVote";
 
 import "./GamePage.scss";
 
+// TODO Пока вынесла константой, переделаю, чтобы определять дилера по id
+export const isCurrentPlayerDealer = true;
+
 const GamePage = () => {
   return (
     <div className="game-page">

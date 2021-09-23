@@ -3,4 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  padding-right: 4rem;
+  margin-bottom: 3rem;
+  & .dealer-block {
+    margin-bottom: 0;
+  }
 }
