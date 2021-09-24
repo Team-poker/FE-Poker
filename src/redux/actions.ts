@@ -9,6 +9,7 @@ import {
   CREATE_CARDS,
   CREATE_MESSAGE,
   CREATE_ISSUE,
+  EDIT_TITLE,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -36,5 +37,12 @@ export const createCards = (cards: ICard) => {
   return {
     type: CREATE_CARDS,
     payload: cards,
+  };
+};
+
+export const editTitle = (title: string) => {
+  return {
+    type: EDIT_TITLE,
+    payload: title,
   };
 };

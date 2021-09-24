@@ -1,4 +1,4 @@
-import { CREATE_CARDS, CREATE_ISSUE } from "../../redux/types";
+import { CREATE_CARDS, CREATE_ISSUE, EDIT_TITLE } from "src/redux/types.ts";
 
 export interface IState {
   messages?: Array<IMessage>;
@@ -49,4 +49,9 @@ export interface IIssue {
 export interface ICreateIssue {
   type: typeof CREATE_ISSUE;
   payload: IIssue;
+}
+
+export interface IEditTitle {
+  type: typeof EDIT_TITLE;
+  payload: string;
 }
