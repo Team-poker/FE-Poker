@@ -24,14 +24,4 @@ export const initialState: IState = {
       },
     },
   ],
-  issues: [
-    {
-      issueTitle: "Issue 13",
-      priority: "low",
-    },
-    {
-      issueTitle: "Issue 111",
-      priority: "high",
-    },
-  ],
 };

@@ -15,7 +15,7 @@ export const addCurrentUser = (user: IUser) => {
   };
 };
 
-export const addIssue = (issue: IIssue) => {
+export const createIssue = (issue: IIssue) => {
   return {
     type: CREATE_ISSUE,
     payload: issue,

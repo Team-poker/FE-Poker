@@ -28,11 +28,11 @@ export interface IMember {
 }
 
 export interface IIssue {
-  issueTitle: string;
+  title: string;
   priority: string;
 }
 
-//Action types:
+//Actions:
 
 export interface ICreateIssue {
   type: typeof CREATE_ISSUE;

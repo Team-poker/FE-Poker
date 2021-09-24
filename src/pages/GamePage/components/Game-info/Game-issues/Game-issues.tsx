@@ -9,11 +9,7 @@ import "./Game-issues.scss";
 const GameIssues = ({ issues }: any) => {
   const issuesList = issues.map((issue: IIssue) => {
     return (
-      <Issue
-        name={issue.issueTitle}
-        key={issue.issueTitle}
-        priority={issue.priority}
-      />
+      <Issue name={issue.title} key={issue.title} priority={issue.priority} />
     );
   });
   return (

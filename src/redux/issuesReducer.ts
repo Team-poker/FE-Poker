@@ -1,14 +1,18 @@
+import { ICreateIssue } from "src/ts/interfaces/app_interfaces.ts";
 import { CREATE_ISSUE } from "./types";
-import { initialState } from "./initialState";
-import { ICreateIssue } from "../ts/interfaces/app_interfaces";
 
-export const issuesReducer = (
-  state = initialState.issues,
-  action: ICreateIssue
-) => {
+const initialState = [
+  { title: "issue 155", priority: "high" },
+  {
+    title: "Issue 111",
+    priority: "high",
+  },
+];
+
+export const issuesReducer = (state = initialState, action: ICreateIssue) => {
   switch (action.type) {
     case CREATE_ISSUE:
-      return state.push(action.payload);
+      state.push(action.payload);
     default:
       return state;
   }

@@ -6,7 +6,7 @@ import "./Round-controls.scss";
 
 const RoundControls = () => {
   //TODO Переделаю на useState
-  const isNewRound = true;
+  const isNewRound = false;
 
   //TODO Добавить хэндлеры для кнопок
   return (
@@ -21,9 +21,9 @@ const RoundControls = () => {
         <>
           <div className="reset-round-control">
             <GameTimer />
-            <Button className="blue-btn" text="Restart Round" />
+            <Button class="blue-btn" text="Restart Round" />
           </div>
-          <Button className="blue-btn" text="Next Issue" />
+          <Button class="blue-btn" text="Next Issue" />
         </>
       )}
     </section>
