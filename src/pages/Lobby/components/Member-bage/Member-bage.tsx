@@ -10,7 +10,6 @@ interface IBageProps {
 }
 
 const MemberBage = (props: IBageProps) => {
-  console.log(props);
   const initials = props.firstName.charAt(0) + props.lastName.charAt(0);
   return (
     <div className="member-bage">

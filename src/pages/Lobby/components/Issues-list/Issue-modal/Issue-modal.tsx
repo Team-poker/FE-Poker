@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 
 import { createIssue } from "../../../../../redux/actions";
@@ -11,6 +11,8 @@ const IssueModal = (props: any) => {
   const [enteredIssueLink, setEnteredIssueLink] = useState("");
   const [enteredIssuePriority, setEnteredIssuePriority] = useState("");
 
+  const priorityRef = useRef(null);
+
   const handleIssueTitleInput = (e: any) => {
     setEnteredIssueTitle(e.target.value);
   };
@@ -19,9 +21,8 @@ const IssueModal = (props: any) => {
     setEnteredIssueLink(e.target.value);
   };
 
-  const handleIssuePrioritySelect = (e: any) => {
-    console.log(e);
-    setEnteredIssuePriority(e.value);
+  const handleIssuePrioritySelect = () => {
+    setEnteredIssuePriority(priorityRef?.current?.value);
   };
 
   const handleIssueSubmit = (e: any) => {
@@ -29,6 +30,7 @@ const IssueModal = (props: any) => {
     const newIssue = {
       title: enteredIssueTitle,
       priority: enteredIssuePriority,
+      link: enteredIssueLink,
     };
     props.createIssue(newIssue);
   };
@@ -51,7 +53,11 @@ const IssueModal = (props: any) => {
         </div>
         <div>
           <label htmlFor="issuePriority">Priority</label>
-          <select name="issuePriority" onChange={handleIssuePrioritySelect}>
+          <select
+            name="issuePriority"
+            onChange={handleIssuePrioritySelect}
+            ref={priorityRef as any}
+          >
             <option>High</option>
             <option>Medium</option>
             <option>Low</option>
