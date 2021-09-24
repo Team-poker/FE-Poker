@@ -12,9 +12,12 @@ import { connect, useDispatch } from "react-redux";
 import { addCurrentUser } from "../../redux/actions";
 
 const MainPage = ({ socket, addCurrentUser }: any) => {
+  const history = useHistory();
+
   const [firstName, setfirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobPosition, setjobPosition] = useState("");
+
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState("Enter your name!");
   const [formValid, setFormValid] = useState(false);

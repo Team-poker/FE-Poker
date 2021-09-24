@@ -41,6 +41,7 @@ export interface ICreateCards {
 export interface IIssue {
   title: string;
   priority: string;
+  link: string;
 }
 
 //Actions:
