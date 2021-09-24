@@ -55,6 +55,7 @@ const LobbyTitle = (props: any) => {
             value={enteredValue}
             autoFocus
             onChange={handleTitleInput}
+            className="title-input"
           ></input>
           <button type="submit" className="confirm-title">
             <img
