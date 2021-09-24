@@ -9,8 +9,20 @@
   width: 70vw;
   margin: 0 auto;
   font-family: Ruda, sans-serif;
+  transition: all 1s ease;
+}
+.chat-open {
+  width: 60vw;
+  transform: translateX(-180px);
+  border-right: 1px solid black;
+  padding-right: 30px;
 }
 
 .lobby-main {
+  padding: 15px;
   flex-grow: 1;
+  display: flex;
+  flex-direction: row;
 }
+
+

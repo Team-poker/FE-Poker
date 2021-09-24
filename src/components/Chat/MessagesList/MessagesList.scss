@@ -1,3 +1,6 @@
 .messages_list {
+  height: 500px;
   padding: 0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }

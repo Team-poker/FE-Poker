@@ -1,11 +1,11 @@
-import React from "react";
-import { connect } from "react-redux";
-import { createMessage } from "../../../redux/actions";
-import { IMessage } from "../../../ts/interfaces/app_interfaces";
-import { Message } from "../Message/Message";
-import "./MessagesList.scss";
+import React, { useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+import { createMessage } from '../../../redux/actions';
+import { IMessage } from '../../../ts/interfaces/app_interfaces';
+import { Message } from '../Message/Message'
+import './MessagesList.scss'
 
-const MessagesList = ({ messages, socket, createMessage }: any) => {
+const MessagesList = ({messages, isChatOpen, socket, createMessage}: any) => {
   if (messages.length === 0) {
     return <p>Сообщений пока нет.</p>;
   }
@@ -25,11 +25,20 @@ const MessagesList = ({ messages, socket, createMessage }: any) => {
     createMessage(newMessage);
   });
 
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    if(isChatOpen) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth", block: 'nearest', inline: 'start'});
+    }
+  };
+
+  useEffect(scrollToBottom, [messages]);
+  
   return (
-    <ul className="messages_list">
-      {messages.map((mes: IMessage) => (
-        <Message text={mes.text} member={mes.member} key={mes.id} />
-      ))}
+    <ul className='messages_list'>
+      {messages.map((mes: IMessage) => <Message text={mes.text} member={mes.member} key={mes.id} />)}
+      <div ref={messagesEndRef} />
     </ul>
   );
 };
@@ -37,6 +46,7 @@ const MessagesList = ({ messages, socket, createMessage }: any) => {
 const mapStateToProps = (state: any) => {
   return {
     messages: state.messages,
+    isChatOpen: state.isChatOpen
   };
 };
 

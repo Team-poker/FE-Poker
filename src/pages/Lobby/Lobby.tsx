@@ -9,15 +9,17 @@ import IssuesList from "./components/Issues-list/Issues-list";
 import GameLink from "./components/Game-link/Game-link";
 import GameControls from "./components/Game-controls/Game-controls";
 
-import "./Lobby.css";
+import "./Lobby.scss";
 import GameSettings from "./components/Game-settings/Game-settings";
+import Chat from "../../components/Chat/Chat";
+import { connect } from "react-redux";
 
-const Lobby = () => {
+const Lobby = ({isChatOpen, socket}: any) => {
   return (
     <div className="lobby">
       <Header />
       <main className="lobby-main">
-        <div className="wrapper">
+        <div className={!isChatOpen ? "wrapper" : "wrapper chat-open"}>
           <LobbyTitle />
           <ScrumMasterBlock />
           {/*<GameLink />*/}
@@ -26,10 +28,17 @@ const Lobby = () => {
           <IssuesList />
           <GameSettings />
         </div>
+        <Chat socket={socket}/>
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Lobby;
+const mapStateToProps = (state: any) => {
+  return {
+    isChatOpen: state.isChatOpen
+  };
+}
+
+export default connect(mapStateToProps, null)(Lobby);
