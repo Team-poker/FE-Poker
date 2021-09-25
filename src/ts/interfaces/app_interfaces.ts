@@ -34,10 +34,12 @@ export interface ICard {
   image: string;
   id: string;
 }
+
 export interface ICreateCards {
   type: typeof CREATE_CARDS;
   payload: ICard;
 }
+
 export interface IIssue {
   title: string;
   priority: string;
