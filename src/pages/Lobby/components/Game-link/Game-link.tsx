@@ -9,7 +9,7 @@ const GameLink = () => {
   const handleCopyLink = (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard
+    window.navigator.clipboard
       .writeText(link)
       .then(() => console.log("Game link copied"))
       .catch((err) => {

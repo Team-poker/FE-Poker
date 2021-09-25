@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
+import { connect } from "react-redux";
+import { editTitle } from "../../../../redux/actions";
+
 import "./Lobby-title.scss";
 
-const LobbyTitle = () => {
-  const [lobbyTitle, setLobbyTitle] = useState("Add planning title");
+const LobbyTitle = (props: any) => {
+  const initialTitle = props.title;
   const [isEditing, setIsEditing] = useState(false);
-  const [enteredValue, setEnteredValue] = useState(lobbyTitle);
+  const [enteredValue, setEnteredValue] = useState(initialTitle);
 
   const handleTitleEdit = () => {
     setIsEditing(true);
@@ -18,24 +21,24 @@ const LobbyTitle = () => {
 
   const handleTitleConfirm = (e: any) => {
     e.preventDefault();
-    setLobbyTitle(enteredValue);
+    props.editTitle(enteredValue);
     setIsEditing(false);
   };
 
   const handleTitleReset = (e: any) => {
     e.preventDefault();
     setIsEditing(false);
-    setEnteredValue(lobbyTitle);
+    setEnteredValue(props.title);
   };
 
   return (
     <div className="lobby-title-block">
       {!isEditing && (
         <>
-          <h1 className="lobby-title">{lobbyTitle}</h1>
+          <h1 className="lobby-title">{props.title}</h1>
           <span className="edit-title" onClick={handleTitleEdit}>
             <img
-              src={require("../../../../../public/pen-icon.svg")}
+              src={require("../../../../../public/pen.svg")}
               alt="Edit title"
             ></img>
           </span>
@@ -52,6 +55,7 @@ const LobbyTitle = () => {
             value={enteredValue}
             autoFocus
             onChange={handleTitleInput}
+            className="title-input"
           ></input>
           <button type="submit" className="confirm-title">
             <img
@@ -71,4 +75,17 @@ const LobbyTitle = () => {
   );
 };
 
-export default LobbyTitle;
+const mapStateToProps = (state: any) => {
+  return {
+    title: state.gameTitle,
+  };
+};
+
+const mapDispatchToProps = {
+  editTitle,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LobbyTitle);
+function title(title: any): [any, any] {
+  throw new Error("Function not implemented.");
+}

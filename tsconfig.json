@@ -9,8 +9,10 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "*.ts": ["*"],
+      "*.ts": ["*"]
     }
   },
-  "files": ["src/index.tsx", "modules.d.ts"]
+  "files": ["src/index.tsx", "modules.d.ts",
+    "src/custom.d.ts"
+  ]
 }

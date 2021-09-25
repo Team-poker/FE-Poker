@@ -1,10 +1,10 @@
 import React from 'react';
 import './Switch.scss';
-const Switch = () => (
+const Switch = ({props}: any) => (
   <>
     <div className="switch">
-      <input type="checkbox" className="checkbox" id="checkbox" />
-      <label htmlFor="checkbox" className="checkbox-label" />
+      <input type="checkbox" className="checkbox" id={props} />
+      <label htmlFor={props} className="checkbox-label" />
       <span className="switch-bg" />
     </div>
   </>
