@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import LobbyTitle from "./components/Lobby-title/Lobby-title";
 import ScrumMasterBlock from "./components/Scrum-master/Scrum-master";
 import MembersList from "./components/Members-list/Members-list";
+import IssuesList from "./components/Issues-list/Issues-list";
 import GameLink from "./components/Game-link/Game-link";
 import GameControls from "./components/Game-controls/Game-controls";
 
@@ -22,6 +23,7 @@ const Lobby = () => {
           {/*<GameLink />*/}
           <GameControls />
           <MembersList />
+          <IssuesList />
           <GameSettings />
         </div>
       </main>

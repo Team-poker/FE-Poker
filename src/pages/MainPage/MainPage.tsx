@@ -1,26 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import Button from '../../components/Button/Button';
-import Header from './blocks/Header/Header';
-import Main from './blocks/Main/Main';
-import Footer from './blocks/Footer/Footer';
-import './MainPage.scss';
-import Modal from '../../components/Modal/Modal';
-import WhiteButton from '../../components/WhiteButton/WhiteButton';
-import Switch from '../../components/Switch/Switch';
-import { Link, useHistory } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
-import { addCurrentUser } from '../../redux/actions';
+import React, { useEffect, useState } from "react";
+import Button from "../../components/Button/Button";
+import Header from "./blocks/Header/Header";
+import Main from "./blocks/Main/Main";
+import Footer from "./blocks/Footer/Footer";
+import "./MainPage.scss";
+import Modal from "../../components/Modal/Modal";
+import WhiteButton from "../../components/WhiteButton/WhiteButton";
+import Switch from "../../components/Switch/Switch";
+import { Link, useHistory } from "react-router-dom";
+import { connect, useDispatch } from "react-redux";
+import { addCurrentUser } from "../../redux/actions";
 
-const MainPage = ({socket, addCurrentUser}: any) => {
-  const [firstName, setfirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [jobPosition, setjobPosition] = useState('');
+const MainPage = ({ socket, addCurrentUser }: any) => {
+  const history = useHistory();
+
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [jobPosition, setjobPosition] = useState("");
+    
   const [nameDirty, setNameDirty] = useState(false);
-  const [nameError, setNameError] = useState('Enter your name!');
+  const [nameError, setNameError] = useState("Enter your name!");
   const [formValid, setFormValid] = useState(false);
   const blurHandler = (e: any) => {
     switch (e.target.name) {
-      case 'firstName':
+      case "firstName":
         setNameDirty(true);
         break;
       default:
@@ -28,30 +31,34 @@ const MainPage = ({socket, addCurrentUser}: any) => {
   };
   const inputHandler = (e: any) => {
     switch (e.target.name) {
-      case 'firstName':
+      case "firstName":
         setfirstName(e.target.value);
         break;
-      case 'lastName':
+      case "lastName":
         setLastName(e.target.value);
         break;
-      case 'jobPosition':
+      case "jobPosition":
         setjobPosition(e.target.value);
         break;
     }
 
-    const re = new RegExp('^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$');
+    const re = new RegExp("^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$");
     if (!re.test(String(e.target.value).toLowerCase())) {
-      setNameError('Enter your name correctly!');
+      setNameError("Enter your name correctly!");
     } else {
-      setNameError('');
+      setNameError("");
     }
   };
-  let history = useHistory();
 
   const sendData = (e: any) => {
     e.preventDefault();
     if (firstName !== "") {
-      socket.emit("joinRoom", { firstName, lastName, jobPosition, roomName: 'testroom' });
+      socket.emit("joinRoom", {
+        firstName,
+        lastName,
+        jobPosition,
+        roomName: "testroom",
+      });
       //if empty error message pops up and returns to the same page
     } else {
       alert("First name and roomname are must !");
@@ -62,13 +69,12 @@ const MainPage = ({socket, addCurrentUser}: any) => {
       firstName: firstName,
       lastName: lastName,
       jobPosition: jobPosition,
-      roomName: 'testroom',
-      dealer: true
-    }
+      roomName: "testroom",
+      dealer: true,
+    };
     addCurrentUser(newUser);
     // window.localStorage.setItem;
     history.push("/lobby");
-
   };
 
   useEffect(() => {
@@ -80,19 +86,19 @@ const MainPage = ({socket, addCurrentUser}: any) => {
   }, [nameError]);
   const buttonsNames = [
     {
-      name: 'Start new game',
+      name: "Start new game",
     },
     {
-      name: 'Connect',
+      name: "Connect",
     },
     {
-      name: 'Load file',
+      name: "Load file",
     },
     {
-      name: 'Confirm',
+      name: "Confirm",
     },
     {
-      name: 'Cancel',
+      name: "Cancel",
     },
   ];
   const [activeModal, setActiveModal] = useState(false);
@@ -111,55 +117,83 @@ const MainPage = ({socket, addCurrentUser}: any) => {
             Connect as
             <br />
             Observer
-            <span className="switch__modal"><Switch /></span>
+            <span className="switch__modal">
+              <Switch />
+            </span>
           </span>
         </div>
-        <form className="form__modal"  onSubmit={sendData}>
+        <form className="form__modal" onSubmit={sendData}>
           <label>
             <span className="input__text">Your first name:</span>
             <br />
-            {(nameDirty && nameError) && <div style={{ color: 'red' }}>{nameError}</div>}
-            <input value={firstName} onChange={(e) => inputHandler(e)} onBlur={(e) => blurHandler(e)} className="input__modal" type="text" name="firstName" />
+            {nameDirty && nameError && (
+              <div style={{ color: "red" }}>{nameError}</div>
+            )}
+            <input
+              value={firstName}
+              onChange={(e) => inputHandler(e)}
+              onBlur={(e) => blurHandler(e)}
+              className="input__modal"
+              type="text"
+              name="firstName"
+            />
           </label>
           <label>
             <span className="input__text">Your last name(optional):</span>
             <br />
-            <input className="input__modal" type="text" value={lastName} onChange={(e) => inputHandler(e)} name="lastName"/>
+            <input
+              className="input__modal"
+              type="text"
+              value={lastName}
+              onChange={(e) => inputHandler(e)}
+              name="lastName"
+            />
           </label>
           <label>
             <span className="input__text">Your job position(optional):</span>
             <br />
-            <input className="input__modal" type="text" value={jobPosition} onChange={(e) => inputHandler(e)} name="jobPosition"/>
+            <input
+              className="input__modal"
+              type="text"
+              value={jobPosition}
+              onChange={(e) => inputHandler(e)}
+              name="jobPosition"
+            />
           </label>
           <label>
             <span className="input__text">Image:</span>
             <br />
-            <input className="input__photo" type="file"/>
-                    <span className="button__modal">
-                      <Button
-                         className="button__modal" name={buttonsNames[2].name} />
-                    </span>
+            <input className="input__photo" type="file" />
+            <span className="button__modal">
+              <Button className="button__modal" name={buttonsNames[2].name} />
+            </span>
           </label>
           <div className="modal__buttons">
-          <span className="cancel__modal" onClick={() => setActiveModal(false)}>
-            {/* <Link to={`/chat`}> */}
-              <Button disabled={!formValid} className="cancel__modal" name={buttonsNames[3].name} type='submit' />
-            {/* </Link> */}
-          </span>
-          <div onClick={() => setActiveModal(false)}>
-            <WhiteButton name={buttonsNames[4].name} />
-          </div>
+            <span
+              className="cancel__modal"
+              onClick={() => setActiveModal(false)}
+            >
+              {/* <Link to={`/chat`}> */}
+              <Button
+                disabled={!formValid}
+                className="cancel__modal"
+                name={buttonsNames[3].name}
+                type="submit"
+              />
+              {/* </Link> */}
+            </span>
+            <div onClick={() => setActiveModal(false)}>
+              <WhiteButton name={buttonsNames[4].name} />
+            </div>
           </div>
         </form>
-
       </Modal>
       <Footer />
     </>
   );
 };
 const mapDispatchToProps = {
-  addCurrentUser
-}
+  addCurrentUser,
+};
 
 export default connect(null, mapDispatchToProps)(MainPage);
-
