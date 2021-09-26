@@ -19,7 +19,7 @@ const MessagesList = ({ messages, socket, createMessage }: any) => {
         lastName: data.lastName || "SYSTEM",
         jobPosition: data.jobPosition || "SYSTEM",
       },
-      text: data.text,
+      text: data.text.text,
     };
 
     createMessage(newMessage);
