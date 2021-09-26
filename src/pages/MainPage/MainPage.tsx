@@ -17,7 +17,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
   const [firstName, setfirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobPosition, setjobPosition] = useState("");
-    
+
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState("Enter your name!");
   const [formValid, setFormValid] = useState(false);
@@ -74,7 +74,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     };
     addCurrentUser(newUser);
     // window.localStorage.setItem;
-    history.push("/lobby");
+    history.push("/chat");
   };
 
   useEffect(() => {
