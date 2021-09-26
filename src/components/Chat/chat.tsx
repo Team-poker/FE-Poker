@@ -4,6 +4,7 @@ import MessagesList from "./MessagesList/MessagesList";
 import "./Chat.scss";
 
 const Chat = ({ socket }: any) => {
+  console.log("SOCKET ID", socket.id);
   return (
     <div className="chat">
       <MessagesList socket={socket} />
