@@ -14,9 +14,9 @@ import { addCurrentUser } from "../../redux/actions";
 const MainPage = ({ socket, addCurrentUser }: any) => {
   const history = useHistory();
 
-  const [firstName, setfirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [jobPosition, setjobPosition] = useState("");
+  const [jobPosition, setJobPosition] = useState("");
 
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState("Enter your name!");
@@ -32,13 +32,13 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
   const inputHandler = (e: any) => {
     switch (e.target.name) {
       case "firstName":
-        setfirstName(e.target.value);
+        setFirstName(e.target.value);
         break;
       case "lastName":
         setLastName(e.target.value);
         break;
       case "jobPosition":
-        setjobPosition(e.target.value);
+        setJobPosition(e.target.value);
         break;
     }
 
