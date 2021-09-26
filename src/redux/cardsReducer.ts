@@ -25,7 +25,6 @@ export const cardsReducer = (state = initialState, action: ICreateCards | IEditC
             return state.push(action.payload);
         case EDIT_CARD_TITLE:
             return updateCard(state, action.payload);
-
         default:
             return state;
     }

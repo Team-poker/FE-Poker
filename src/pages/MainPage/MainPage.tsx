@@ -74,7 +74,8 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
       dealer: true,
     };
     addCurrentUser(newUser);
-    // window.localStorage.setItem;
+    localStorage.setItem(JSON.stringify(newUser), JSON.stringify(newUser.firstName));
+    localStorage.getItem(JSON.stringify(newUser));
     history.push("/lobby");
   };
 
@@ -193,9 +194,14 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     </>
   );
 };
+// const mapStateToProps = (state: any) => {
+//   return {
+//     currentUser: state.currentUser,
+//   };
+// };
+
 const mapDispatchToProps = {
   addCurrentUser,
 };
-
 export default connect(null, mapDispatchToProps)(MainPage);
 
