@@ -6,7 +6,6 @@ import MainPage from "./pages/MainPage/MainPage";
 import Lobby from "./pages/Lobby/Lobby";
 import GamePage from "./pages/GamePage/GamePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Lobby from "./pages/Lobby/Lobby";
 
 var socket = io.connect("http://localhost:3000/");
 
