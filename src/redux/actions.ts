@@ -2,14 +2,15 @@ import {
   ICard,
   IMessage,
   IUser,
-  IIssue,
+  IIssue, IEditCard,
 } from "../ts/interfaces/app_interfaces";
+
 import {
   ADD_CURRENT_USER,
   CREATE_CARDS,
   CREATE_MESSAGE,
   CREATE_ISSUE,
-  EDIT_TITLE,
+  EDIT_TITLE, EDIT_CARD_TITLE,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -46,3 +47,10 @@ export const editTitle = (title: string) => {
     payload: title,
   };
 };
+
+export const editCardTitle = (newCard: ICard) => {
+  return {
+    type: EDIT_CARD_TITLE,
+    payload: newCard
+  }
+}

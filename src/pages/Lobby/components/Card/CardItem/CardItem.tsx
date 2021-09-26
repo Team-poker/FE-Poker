@@ -1,51 +1,61 @@
 import React, {useState} from 'react';
 import './CardItem.scss';
+import {connect} from "react-redux";
+import {editCardTitle} from "../../../../../redux/actions";
+import {ICard} from "../../../../../ts/interfaces/app_interfaces";
+type PropsFromRedux = typeof mapDispatchToProps;
 
-
-export interface ItemProps {
+export interface ItemProps extends PropsFromRedux {
     title: string,
-    count: number,
+    count?: number,
     image: any,
-    storyPoint: string,
+    storyPoint?: string,
     id: string
 }
 
-const CardItem = ({image, title } : ItemProps) => {
-    const [newTitle, setNewTitle] = useState({title});
+const CardItem = (props: ItemProps) => {
+    // const [newTitle, setNewTitle] = useState({title});
     const [isEditing, setIsEditing] = useState(false);
-    const [enteredValue, setEnteredValue] = useState(newTitle);
+    const [enteredValue, setEnteredValue] = useState("");
     const handleTitleEdit = () => {
         setIsEditing(true);
     };
 
     const handleTitleInput = (e: any) => {
+        setIsEditing(true);
         const editTitle = e.target.value;
         setEnteredValue(editTitle);
     };
 
     const handleTitleConfirm = (e: any) => {
         e.preventDefault();
-        setNewTitle(enteredValue);
+        // setNewTitle(enteredValue);
+        const newCard: ICard = {
+            id: props.id,
+            title: enteredValue,
+            image: props.image,
+        }
+        props.editCardTitle(newCard);
         setIsEditing(false);
     };
 
-    const handleTitleReset = (e: any) => {
-        e.preventDefault();
-        setIsEditing(false);
-        setEnteredValue(newTitle);
-    };
+    // const handleTitleReset = (e: any) => {
+    //     e.preventDefault();
+    //     setIsEditing(false);
+    //     setEnteredValue(newTitle);
+    // };
     return (
         <>
         <div className="card-item">
             {!isEditing && (
                 <>
-                <div className="title-card">{title}
+                <div className="title-card">{props.title}
                     <div className="pen-card" onClick={handleTitleEdit}/>
                 </div>
                 <div className="main-card">
-                    <img className="main-card__image" src={image} alt=""/>
+                    <img className="main-card__image" src={props.image} alt=""/>
                 </div>
-                    <div className="revert-card">{title}</div>
+                    <div className="revert-card">{props.title}</div>
                 </>
             )}
             {isEditing && (
@@ -53,7 +63,7 @@ const CardItem = ({image, title } : ItemProps) => {
                 <form
                     className="edit-title-form"
                     onSubmit={handleTitleConfirm}
-                    onReset={handleTitleReset}
+                    // onReset={handleTitleReset}
                 >
                     <input
                         type="text"
@@ -73,4 +83,7 @@ const CardItem = ({image, title } : ItemProps) => {
     );
 };
 
-export default CardItem;
+const mapDispatchToProps = {
+    editCardTitle
+}
+export default connect(null, mapDispatchToProps)(CardItem);

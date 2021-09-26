@@ -50,7 +50,6 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     }
   };
 
-  let history = useHistory();
 
   const sendData = (e: any) => {
     e.preventDefault();

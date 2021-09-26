@@ -5,3 +5,4 @@ export const ADD_CURRENT_USER = "USER/ADD_CURRENT_USER";
 export const CREATE_ISSUE = "CREATE_ISSUE";
 export const CREATE_CARDS = "CREATE_CARDS";
 export const EDIT_TITLE = "EDIT_TITLE";
+export const EDIT_CARD_TITLE = "EDIT_CARD_TITLE";
