@@ -1,4 +1,4 @@
-import { CREATE_CARDS, CREATE_ISSUE, EDIT_TITLE } from "src/redux/types.ts";
+import {CREATE_CARDS, CREATE_ISSUE, EDIT_CARD_TITLE, EDIT_TITLE} from "src/redux/types.ts";
 
 export interface IState {
   messages?: Array<IMessage>;
@@ -29,10 +29,15 @@ export interface IMember {
 
 export interface ICard {
   title: string;
-  count: number;
-  storyPoint: string;
+  count?: number;
+  storyPoint?: string;
   image: string;
   id: string;
+}
+
+export interface IEditCard {
+  id: string,
+  newTitle: string
 }
 
 export interface ICreateCards {
@@ -56,4 +61,8 @@ export interface ICreateIssue {
 export interface IEditTitle {
   type: typeof EDIT_TITLE;
   payload: string;
+}
+export interface IEditCards {
+  type: typeof EDIT_CARD_TITLE,
+  payload: ICard
 }

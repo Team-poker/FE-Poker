@@ -14,9 +14,9 @@ import { addCurrentUser } from "../../redux/actions";
 const MainPage = ({ socket, addCurrentUser }: any) => {
   const history = useHistory();
 
-  const [firstName, setfirstName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [jobPosition, setjobPosition] = useState("");
+  const [jobPosition, setJobPosition] = useState("");
 
   const [nameDirty, setNameDirty] = useState(false);
   const [nameError, setNameError] = useState("Enter your name!");
@@ -32,23 +32,24 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
   const inputHandler = (e: any) => {
     switch (e.target.name) {
       case "firstName":
-        setfirstName(e.target.value);
+        setFirstName(e.target.value);
         break;
       case "lastName":
         setLastName(e.target.value);
         break;
       case "jobPosition":
-        setjobPosition(e.target.value);
+        setJobPosition(e.target.value);
         break;
     }
 
-    const re = new RegExp("^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$");
+    const re = new RegExp('^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$');
     if (!re.test(String(e.target.value).toLowerCase())) {
-      setNameError("Enter your name correctly!");
+      setNameError('Enter your name correctly!');
     } else {
-      setNameError("");
+      setNameError('');
     }
   };
+
 
   const sendData = (e: any) => {
     e.preventDefault();
@@ -73,8 +74,8 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
       dealer: true,
     };
     addCurrentUser(newUser);
-    // window.localStorage.setItem;
-    history.push("/chat");
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
+    history.push("/lobby");
   };
 
   useEffect(() => {
@@ -192,8 +193,14 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     </>
   );
 };
+// const mapStateToProps = (state: any) => {
+//   return {
+//     currentUser: state.currentUser,
+//   };
+// };
+
 const mapDispatchToProps = {
   addCurrentUser,
 };
-
 export default connect(null, mapDispatchToProps)(MainPage);
+
