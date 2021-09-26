@@ -10,8 +10,6 @@ const initialState =
 ];
 
 const updateCard = (state: any, card: ICard) => {
-    // const newCards = state.filter((item: ICard) => item.id !== card.id);
-    // return [...newCards, card];
     const newCards = state.map((item: ICard) => {
         if (item.id !== card.id) {
             return item;

@@ -14,7 +14,6 @@ export interface ItemProps extends PropsFromRedux {
 }
 
 const CardItem = (props: ItemProps) => {
-    // const [newTitle, setNewTitle] = useState({title});
     const [isEditing, setIsEditing] = useState(false);
     const [enteredValue, setEnteredValue] = useState("");
     const handleTitleEdit = () => {
@@ -29,7 +28,6 @@ const CardItem = (props: ItemProps) => {
 
     const handleTitleConfirm = (e: any) => {
         e.preventDefault();
-        // setNewTitle(enteredValue);
         const newCard: ICard = {
             id: props.id,
             title: enteredValue,
