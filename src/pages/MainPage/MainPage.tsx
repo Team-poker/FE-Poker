@@ -74,8 +74,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
       dealer: true,
     };
     addCurrentUser(newUser);
-    localStorage.setItem(JSON.stringify(newUser), JSON.stringify(newUser.firstName));
-    localStorage.getItem(JSON.stringify(newUser));
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
     history.push("/lobby");
   };
 
