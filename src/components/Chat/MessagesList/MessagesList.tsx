@@ -14,10 +14,10 @@ const MessagesList = ({ messages, socket, createMessage }: any) => {
     const newMessage = {
       id: Date.now(),
       member: {
-        userId: data.userId,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        jobPosition: data.jobPosition,
+        userId: 666,
+        firstName: data.firstName || "SYSTEM",
+        lastName: data.lastName || "SYSTEM",
+        jobPosition: data.jobPosition || "SYSTEM",
       },
       text: data.text,
     };
