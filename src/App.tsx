@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import io from "socket.io-client";
-import Chat from "./components/Chat/chat";
 import MainPage from "./pages/MainPage/MainPage";
 import GamePage from "./pages/GamePage/GamePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -18,10 +17,7 @@ const App = () => (
       </Route>
       <Route path='/lobby'>
         <Lobby socket={socket} />
-      </Route>
-      <Route path="/lobby" exact>
-        <Lobby />
-      </Route>
+      </Route>  
       <Route path="/game" exact>
         <GamePage />
       </Route>
