@@ -10,20 +10,22 @@ const MessagesList = ({messages, isChatOpen, socket, createMessage}: any) => {
     return <p>Сообщений пока нет.</p>;
   }
 
-  socket.on("message", (data: any) => {
-    const newMessage = {
-      id: Date.now(),
-      member: {
-        userId: 666,
-        firstName: data.firstName || "SYSTEM",
-        lastName: data.lastName || "SYSTEM",
-        jobPosition: data.jobPosition || "SYSTEM",
-      },
-      text: data.text.text,
-    };
-
-    createMessage(newMessage);
-  });
+  useEffect(() => {
+    socket.on("message", (data: any) => {
+      const newMessage = {
+        id: Date.now(),
+        member: {
+          userId: data.userId,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          jobPosition: data.jobPosition,
+        },
+        text: data.text,
+      };
+  
+      createMessage(newMessage);
+    });
+  }, [socket])
 
   const messagesEndRef = useRef(null);
 
