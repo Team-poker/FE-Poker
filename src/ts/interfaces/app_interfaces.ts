@@ -4,6 +4,7 @@ export interface IState {
   messages?: Array<IMessage>;
   currentUser?: IUser | {};
   issues?: Array<IIssue>;
+  isChatOpen: Boolean 
 }
 
 export interface IUser {

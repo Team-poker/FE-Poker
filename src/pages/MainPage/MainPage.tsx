@@ -193,11 +193,6 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
     </>
   );
 };
-// const mapStateToProps = (state: any) => {
-//   return {
-//     currentUser: state.currentUser,
-//   };
-// };
 
 const mapDispatchToProps = {
   addCurrentUser,

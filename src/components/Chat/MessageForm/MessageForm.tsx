@@ -20,7 +20,7 @@ const MessageForm = ({currentUser, createMessage, socket}: any) => {
       member,
       text,
     }
-    createMessage(newMessage);
+    // createMessage(newMessage);
     socket.emit('chat', newMessage)
     setText('')
   };
@@ -39,6 +39,7 @@ const MessageForm = ({currentUser, createMessage, socket}: any) => {
           value={text}
           name='text'
           placeholder='Сообщение'
+          
           onChange={changeInputHandler}/>
         <button className='form_submit_btn' type="submit">Отправить</button>
       </div>

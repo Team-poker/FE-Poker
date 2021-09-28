@@ -11,6 +11,7 @@ import {
   CREATE_MESSAGE,
   CREATE_ISSUE,
   EDIT_TITLE, EDIT_CARD_TITLE,
+  TOGGLE_CHAT_VISIBILITY,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -52,5 +53,12 @@ export const editCardTitle = (newCard: ICard) => {
   return {
     type: EDIT_CARD_TITLE,
     payload: newCard
+  }
+}
+
+export const toggleChatVisibility = (isChatOpen: boolean) => {
+  return {
+    type: TOGGLE_CHAT_VISIBILITY,
+    payload: isChatOpen
   }
 }

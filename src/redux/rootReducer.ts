@@ -4,6 +4,7 @@ import { usersReducer } from "./usersReducer";
 import { cardsReducer } from "./cardsReducer";
 import { issuesReducer } from "./issuesReducer";
 import { titleReducer } from "./titleReducer";
+import { chatReducer } from './chatReducer';
 
 const rootReducer = combineReducers({
   messages: messagesReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   issues: issuesReducer,
   cards: cardsReducer,
   gameTitle: titleReducer,
+  isChatOpen: chatReducer,
 });
 
 export default rootReducer;

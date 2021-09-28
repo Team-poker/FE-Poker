@@ -45,9 +45,31 @@ button:focus {
     outline: none;
 }
 
+.chat-wrap {
+  position: absolute;
+  top: 0;
+  padding-top: 70px;
+  right: -100%;
+  width: 450px;
+  transition: all 1s;
+  margin-left: 15px;
+  height: 100%;
+}
+
 
 .chat {
-  width: 450px;
-  height: 100vh;
+  position:-webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 300px;
+  padding-left: 15px;
   font-family: 'Roboto', sans-serif;
 }
+
+.open {
+  right: 0;
+}
+
+// .empty-space {
+//   height: 125%;
+// }

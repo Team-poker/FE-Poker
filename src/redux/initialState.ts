@@ -2,6 +2,7 @@ import { IState } from "../ts/interfaces/app_interfaces";
 
 export const initialState: IState = {
   currentUser: {},
+  isChatOpen: false,
   messages: [
     {
       id: 0,

@@ -18,7 +18,7 @@ export const Member = ({ member }: IMember & any) => {
           <img src={image} alt={firstName + " " + lastName}></img>
         )}
       </div>
-      <div>
+      <div className='member_info'>
         <p className="member_name">{firstName + " " + lastName}</p>
         <p className="member_position">{jobPosition}</p>
       </div>
