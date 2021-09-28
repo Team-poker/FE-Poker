@@ -1,10 +1,10 @@
-import {CREATE_CARDS, CREATE_ISSUE, EDIT_CARD_TITLE, EDIT_TITLE} from "src/redux/types.ts";
+import {CREATE_CARDS, CREATE_ISSUE, CREATE_RESULT, EDIT_CARD_TITLE, EDIT_TITLE} from "src/redux/types.ts";
 
 export interface IState {
   messages?: Array<IMessage>;
   currentUser?: IUser | {};
   issues?: Array<IIssue>;
-  isChatOpen: Boolean 
+  isChatOpen: Boolean
 }
 
 export interface IUser {
@@ -66,4 +66,13 @@ export interface IEditTitle {
 export interface IEditCards {
   type: typeof EDIT_CARD_TITLE,
   payload: ICard
+}
+export interface ICreateResult {
+  type : typeof CREATE_RESULT,
+  payload: IResult
+}
+export interface IResult {
+  id: string,
+  title: string,
+  score: string
 }

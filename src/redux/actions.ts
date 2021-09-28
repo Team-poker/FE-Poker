@@ -2,7 +2,7 @@ import {
   ICard,
   IMessage,
   IUser,
-  IIssue, IEditCard,
+  IIssue, IEditCard, IResult,
 } from "../ts/interfaces/app_interfaces";
 
 import {
@@ -11,7 +11,7 @@ import {
   CREATE_MESSAGE,
   CREATE_ISSUE,
   EDIT_TITLE, EDIT_CARD_TITLE,
-  TOGGLE_CHAT_VISIBILITY,
+  TOGGLE_CHAT_VISIBILITY, CREATE_RESULT,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -60,5 +60,11 @@ export const toggleChatVisibility = (isChatOpen: boolean) => {
   return {
     type: TOGGLE_CHAT_VISIBILITY,
     payload: isChatOpen
+  }
+}
+export const getResult = (result: IResult) => {
+  return {
+    type: CREATE_RESULT,
+    payload: result
   }
 }
