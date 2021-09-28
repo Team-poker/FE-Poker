@@ -21,17 +21,7 @@ const updateCard = (state: any, card: ICard) => {
     });
     return newCards;
 }
-// const changeTitle = (state: any, card: ICard ) => {
-//
-//     const newTitleCards = state.map((item: ICard) => {
-//         if(item.title === card.title) {
-//             return item;
-//         } else if (item.title !== card.title) {
-//             return {id: item.id, title: card.title, image: item.image};
-//         }
-//     })
-//     return newTitleCards;
-// }
+
 
 export const cardsReducer = (state = initialState, action: ICreateCards | IEditCards) => {
     switch (action.type) {
