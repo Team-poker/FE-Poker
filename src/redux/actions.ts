@@ -35,7 +35,7 @@ export const createIssue = (issue: IIssue) => {
   };
 };
 
-export const createCards = (cards: ICard) => {
+export const createCards = (cards: ICard[]) => {
   return {
     type: CREATE_CARDS,
     payload: cards,
