@@ -23,7 +23,7 @@ const GamePage = () => {
           <GameInfo />
           <GameVote />
         </div>
-          <Button type="submit" text="Download results" class="blue-btn" onClick={onDownload} />
+          <Button type="submit" text="Download results" class="blue-btn" onAction={onDownload} />
       </main>
       <Footer />
     </div>
