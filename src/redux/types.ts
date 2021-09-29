@@ -7,4 +7,5 @@ export const CREATE_ISSUE = "CREATE_ISSUE";
 export const CREATE_CARDS = "CREATE_CARDS";
 export const EDIT_TITLE = "EDIT_TITLE";
 export const EDIT_CARD_TITLE = "EDIT_CARD_TITLE";
+export const CREATE_RESULT = "CREATE_RESULT";
 
