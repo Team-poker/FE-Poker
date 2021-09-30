@@ -8,7 +8,28 @@ import thunk from 'redux-thunk'
 import App from './App.tsx';
 import rootReducer from './redux/rootReducer';
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const saveToLocalStorage = (state: any) => {
+    try {
+        const serialisedState = JSON.stringify(state);
+        localStorage.setItem("persistantState", serialisedState);
+    }
+    catch(e) {
+        console.warn(e);
+    }
+}
+const loadFromLocalStorage = () => {
+    try {
+        const serialisedState = localStorage.getItem("persistantState");
+    if (serialisedState === null) return undefined;
+    return JSON.parse(serialisedState);
+    }
+    catch(e) {
+        console.warn(e);
+        return undefined;
+    }
+}
+const store = createStore(rootReducer, loadFromLocalStorage(), composeWithDevTools(applyMiddleware(thunk)));
+store.subscribe(() => saveToLocalStorage(store.getState()));
 
 ReactDOM.render(
   <Provider store={store}>
