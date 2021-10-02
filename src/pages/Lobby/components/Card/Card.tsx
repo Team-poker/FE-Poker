@@ -34,7 +34,7 @@ export const Cards = ( { cards, createCards }: any) => {
             <section className="cards">
                 <h3 className="cards-info">Add card values:</h3>
                 <div className="cards-list">{cardsList}</div>
-                <Button type="submit" text="Change cards" class="blue-btn" onAction={getCards} />
+                <Button type="submit" text="Change cards" class="blue-btn btn-change" onAction={getCards} />
             </section>
 
         </>
