@@ -35,7 +35,7 @@ const GameSettings = () => {
                     </div>
                 </div>
             </div>
-            <Cards />
+            <Cards isEditable={true} />
 
         </>
     );

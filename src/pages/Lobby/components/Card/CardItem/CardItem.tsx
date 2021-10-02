@@ -10,7 +10,8 @@ export interface ItemProps extends PropsFromRedux {
     count?: number,
     image: any,
     storyPoint?: string,
-    id: string
+    id: string,
+    isEditable: boolean
 }
 
 const CardItem = (props: ItemProps) => {
@@ -48,7 +49,7 @@ const CardItem = (props: ItemProps) => {
             {!isEditing && (
                 <>
                 <div className="title-card">{props.title}
-                    <div className="pen-card" onClick={handleTitleEdit}/>
+                    {props.isEditable && <div className="pen-card" onClick={handleTitleEdit}/>}
                 </div>
                 <div className="main-card">
                     <img className="main-card__image" src={props.image} alt=""/>
