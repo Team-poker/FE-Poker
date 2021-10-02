@@ -29,7 +29,7 @@ const GamePage = (card:any ) => {
                 </div>
                 <Button type="submit" text="Download results" class="blue-btn btn-result" onAction={onDownload} />
                 <div className="cards-game">
-                    <Card  key={card.title + card.image + card.id}  />
+                    <Card  key={card.title + card.image + card.id} isEditable={false} />
                 </div>
             </main>
             <Footer />

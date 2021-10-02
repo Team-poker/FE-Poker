@@ -7,12 +7,13 @@ import Button from "../Button/Button";
 import {createCards} from "../../../../redux/actions";
 
 
-export const Cards = ( { cards, createCards }: any) => {
+export const Cards = ( { cards, createCards, isEditable }: any) => {
     const cardsList = cards.map((card: ICard) => {
         return <CardItem
             title={card.title}
             image={card.image}
             id={card.id}
+            isEditable={isEditable}
             key={card.title + card.image + card.id}
         />
     });
@@ -29,12 +30,13 @@ export const Cards = ( { cards, createCards }: any) => {
             ];
         createCards(newCards);
     }
+    const cardName = "Add card values:"
     return (
         <>
             <section className="cards">
-                <h3 className="cards-info">Add card values:</h3>
+                 {isEditable && <h3 className="cards-info">{cardName}</h3>}
                 <div className="cards-list">{cardsList}</div>
-                <Button type="submit" text="Change cards" class="blue-btn btn-change" onAction={getCards} />
+                {isEditable && <Button type="submit" text="Change cards" class="blue-btn " onAction={getCards} />}
             </section>
 
         </>
