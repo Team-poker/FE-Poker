@@ -18,6 +18,8 @@ import {
   CREATE_RESULT,
   UPDATE_USERSLIST,
   SET_USERSLIST,
+  SET_ISSUESLIST,
+  SET_CARDSLIST,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -87,5 +89,19 @@ export const addUserToUserslist = (user: IUser) => {
   return {
     type: UPDATE_USERSLIST,
     payload: user,
+  };
+};
+
+export const updateCardsList = (cardsList: Array<ICard>) => {
+  return {
+    type: SET_CARDSLIST,
+    payload: cardsList,
+  };
+};
+
+export const updateIssuesList = (issuesList: Array<IIssue>) => {
+  return {
+    type: SET_ISSUESLIST,
+    payload: issuesList,
   };
 };

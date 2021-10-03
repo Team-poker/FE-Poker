@@ -4,6 +4,8 @@ import {
   CREATE_RESULT,
   EDIT_CARD_TITLE,
   EDIT_TITLE,
+  SET_CARDSLIST,
+  SET_ISSUESLIST,
   SET_USERSLIST,
   UPDATE_USERSLIST,
 } from "src/redux/types.ts";
@@ -51,7 +53,7 @@ export interface IEditCard {
 }
 
 export interface ICreateCards {
-  type: typeof CREATE_CARDS;
+  type: typeof CREATE_CARDS | typeof SET_CARDSLIST;
   payload: ICard;
 }
 
@@ -96,4 +98,9 @@ export interface IAddUser {
 export interface ISetUsers {
   type: typeof SET_USERSLIST;
   payload: Array<IUser>;
+}
+
+export interface ISetIssues {
+  type: typeof SET_ISSUESLIST;
+  payload: Array<IIssue>;
 }
