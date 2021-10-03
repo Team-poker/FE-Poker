@@ -174,16 +174,14 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
               className="cancel__modal"
               onClick={() => setActiveModal(false)}
             >
-              {/* <Link to={`/chat`}> */}
               <Button
                 disabled={!formValid}
                 className="cancel__modal"
                 name={buttonsNames[3].name}
                 type="submit"
               />
-              {/* </Link> */}
             </span>
-            <div onClick={() => setActiveModal(false)}>
+            <div onClick={() => setActiveModal(false) }>
               <WhiteButton name={buttonsNames[4].name} />
             </div>
           </div>
