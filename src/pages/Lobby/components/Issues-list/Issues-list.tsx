@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import IssueItem from "./Issue-Item/Issue-Item";
-import NewIssue from "./New-Issue/New-Issue";
+import IssueItem from "./Issue-item/Issue-item";
+// import NewIssue from "./New-issue/New-issue";
 import { createIssue } from "../../../../redux/actions";
 import { IIssue } from "../../../../ts/interfaces/app_interfaces";
 import IssueModal from "./Issue-modal/Issue-modal";
