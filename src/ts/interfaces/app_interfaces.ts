@@ -1,10 +1,18 @@
-import {CREATE_CARDS, CREATE_ISSUE, CREATE_RESULT, EDIT_CARD_TITLE, EDIT_TITLE} from "src/redux/types.ts";
+import {
+  CREATE_CARDS,
+  CREATE_ISSUE,
+  CREATE_RESULT,
+  EDIT_CARD_TITLE,
+  EDIT_TITLE,
+  SET_USERSLIST,
+  UPDATE_USERSLIST,
+} from "src/redux/types.ts";
 
 export interface IState {
   messages?: Array<IMessage>;
   currentUser?: IUser | {};
   issues?: Array<IIssue>;
-  isChatOpen: Boolean
+  isChatOpen: Boolean;
 }
 
 export interface IUser {
@@ -13,6 +21,7 @@ export interface IUser {
   lastName: string;
   jobPosition: string;
   roomName: string;
+  dealer: boolean;
 }
 export interface IMessage {
   id: number;
@@ -37,8 +46,8 @@ export interface ICard {
 }
 
 export interface IEditCard {
-  id: string,
-  newTitle: string
+  id: string;
+  newTitle: string;
 }
 
 export interface ICreateCards {
@@ -50,6 +59,12 @@ export interface IIssue {
   title: string;
   priority: string;
   link: string;
+}
+
+export interface IResult {
+  id: string;
+  title: string;
+  score: string;
 }
 
 //Actions:
@@ -64,15 +79,21 @@ export interface IEditTitle {
   payload: string;
 }
 export interface IEditCards {
-  type: typeof EDIT_CARD_TITLE,
-  payload: ICard
+  type: typeof EDIT_CARD_TITLE;
+  payload: ICard;
 }
+
 export interface ICreateResult {
-  type : typeof CREATE_RESULT,
-  payload: IResult
+  type: typeof CREATE_RESULT;
+  payload: IResult;
 }
-export interface IResult {
-  id: string,
-  title: string,
-  score: string
+
+export interface IAddUser {
+  type: typeof UPDATE_USERSLIST;
+  payload: IUser;
+}
+
+export interface ISetUsers {
+  type: typeof SET_USERSLIST;
+  payload: Array<IUser>;
 }
