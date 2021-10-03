@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-import { players } from "../../../../members-data";
 import MemberBage from "../Member-bage/Member-bage";
+import { addUserToUserslist } from "../../../../redux/actions";
+import { IUser } from "../../../../ts/interfaces/app_interfaces";
+import { isCurrentUser } from "../../../../utils";
 
 import "./Members-list.scss";
 
-const MembersList = () => {
-  const members = players.filter((player) => player.gameRole !== "dealer");
-  const membersItems = members.map((member) => {
+const MembersList = ({
+  socket,
+  addUserToUserslist,
+  usersList,
+  currentUser,
+}: any) => {
+  useEffect(() => {
+    socket.on("newUser", (newUser: IUser) => {
+      addUserToUserslist(newUser);
+    });
+  }, [socket]);
+
+  const members = usersList.filter((player: any) => !player.dealer);
+  const membersItems = members.map((member: any) => {
     return (
       <MemberBage
-        key={member.firstName + member.lastName + member.jobPosition}
+        key={member.id}
         firstName={member.firstName}
         lastName={member.lastName}
         jobPosition={member.jobPosition}
-        gameRole={member.gameRole}
+        dealer={member.dealer}
+        current={isCurrentUser(member.id, currentUser.id)}
       />
     );
   });
@@ -26,4 +41,15 @@ const MembersList = () => {
   );
 };
 
-export default MembersList;
+const mapStateToProps = (state: any) => {
+  return {
+    currentUser: state.currentUser,
+    usersList: state.usersList,
+  };
+};
+
+const mapDispatchToProps = {
+  addUserToUserslist,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MembersList);
