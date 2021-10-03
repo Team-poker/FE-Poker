@@ -6,7 +6,8 @@ interface IBageProps {
   firstName: string;
   lastName: string;
   jobPosition: string;
-  gameRole: string;
+  dealer: boolean;
+  current: boolean;
 }
 
 const MemberBage = (props: IBageProps) => {
@@ -17,6 +18,7 @@ const MemberBage = (props: IBageProps) => {
         <span className="member-initials">{initials}</span>
       </div>
       <div className="member-info">
+        {props.current && <span className="dealer-label">It's you</span>}
         <p className="member-name">{`${props.firstName} ${props.lastName}`}</p>
         <span className="dealer-title">{props.jobPosition}</span>
       </div>

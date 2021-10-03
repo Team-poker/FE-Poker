@@ -9,9 +9,10 @@ import WhiteButton from "../../components/WhiteButton/WhiteButton";
 import Switch from "../../components/Switch/Switch";
 import { Link, useHistory } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
-import { addCurrentUser } from "../../redux/actions";
+import { addCurrentUser, setInitialUsersList } from "../../redux/actions";
+import { IUser } from "../../ts/interfaces/app_interfaces";
 
-const MainPage = ({ socket, addCurrentUser }: any) => {
+const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
   const history = useHistory();
 
   const [firstName, setFirstName] = useState("");
@@ -42,14 +43,13 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
         break;
     }
 
-    const re = new RegExp('^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$');
+    const re = new RegExp("^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$");
     if (!re.test(String(e.target.value).toLowerCase())) {
-      setNameError('Enter your name correctly!');
+      setNameError("Enter your name correctly!");
     } else {
-      setNameError('');
+      setNameError("");
     }
   };
-
 
   const sendData = (e: any) => {
     e.preventDefault();
@@ -59,6 +59,7 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
         lastName,
         jobPosition,
         roomName: "testroom",
+        dealer: false,
       });
       //if empty error message pops up and returns to the same page
     } else {
@@ -66,16 +67,22 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
       window.location.reload();
     }
 
-    const newUser = {
-      firstName: firstName,
-      lastName: lastName,
-      jobPosition: jobPosition,
-      roomName: "testroom",
-      dealer: true,
-    };
-    addCurrentUser(newUser);
-    localStorage.setItem("currentUser", JSON.stringify(newUser));
-    history.push("/lobby");
+    socket.on("currentUser", (curUser: any) => {
+      const newUser = {
+        id: curUser.id,
+        firstName: curUser.firstName,
+        lastName: curUser.lastName,
+        jobPosition: curUser.jobPosition,
+        roomName: "testroom",
+        dealer: curUser.dealer,
+      };
+      addCurrentUser(newUser);
+    });
+
+    socket.on("usersList", (usersList: Array<IUser> | []) => {
+      setInitialUsersList(usersList);
+      history.push("/lobby");
+    });
   };
 
   useEffect(() => {
@@ -194,6 +201,6 @@ const MainPage = ({ socket, addCurrentUser }: any) => {
 
 const mapDispatchToProps = {
   addCurrentUser,
+  setInitialUsersList,
 };
 export default connect(null, mapDispatchToProps)(MainPage);
-

@@ -1,12 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import VoteRow from "./Vote-row/Vote-row";
-import { players } from "../../../../members-data";
 
 import "./GameVote.scss";
 
-const GameVote = () => {
-  const voteResults = players.map((item) => (
+const GameVote = (props: any) => {
+  const players = props.usersList.filter((player: any) => !player.dealer);
+  const voteResults = players.map((item: any) => (
     <VoteRow player={item} key={item.firstName + item.lastName} />
   ));
   return (
@@ -20,4 +21,11 @@ const GameVote = () => {
   );
 };
 
-export default GameVote;
+const mapStateToProps = (state: any) => {
+  return {
+    usersList: state.usersList,
+    currentUser: state.currentUser,
+  };
+};
+
+export default connect(mapStateToProps, null)(GameVote);
