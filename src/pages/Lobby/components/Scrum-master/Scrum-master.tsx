@@ -1,15 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { players } from "../../../../members-data";
+import { isCurrentUser } from "../../../../utils";
 import "./Scrum-master.css";
 
 // TO DO: если с бэка пришло фото - отображать фото вместо инициалов в блоке dealer-picture
 const ScrumMasterBlock = (props: any) => {
-  // const dealer = players.find((player) => player.gameRole === "dealer");
-  const initials =
-    props.currentUser.firstName.charAt(0) +
-    props.currentUser.lastName.charAt(0);
+  const dealer = props.usersList.find((player: any) => player.dealer === true);
+  const initials = dealer.firstName.charAt(0) + dealer.lastName.charAt(0);
+  const current = isCurrentUser(dealer.id, props.currentUser.id);
 
   return (
     <div className="scrum-master">
@@ -19,9 +18,9 @@ const ScrumMasterBlock = (props: any) => {
           <span className="dealer-initials">{initials}</span>
         </div>
         <div className="dealer-info">
-          <span className="dealer-label">It's you</span>
-          <p className="dealer-name">{`${props.currentUser.firstName} ${props.currentUser.lastName}`}</p>
-          <span className="dealer-title">{props.currentUser.jobPosition}</span>
+          {current && <span className="dealer-label">It's you</span>}
+          <p className="dealer-name">{`${dealer.firstName} ${dealer.lastName}`}</p>
+          <span className="dealer-title">{dealer.jobPosition}</span>
         </div>
       </div>
     </div>
@@ -30,6 +29,7 @@ const ScrumMasterBlock = (props: any) => {
 
 const mapStateToProps = (state: any) => {
   return {
+    usersList: state.usersList,
     currentUser: state.currentUser,
   };
 };
