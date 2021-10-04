@@ -97,8 +97,10 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
 
     socket.on("usersList", (usersList: Array<IUser> | []) => {
       setInitialUsersList(usersList);
+      history.push("/lobby");
     });
   };
+
 
   useEffect(() => {
     if (nameError || lastNameError || jobError) {
@@ -202,7 +204,7 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
           <div className="modal__buttons">
             <span
               className="cancel__modal"
-              onClick={() => history.push("/lobby")}
+              onClick={() => setActiveModal(false)}
             >
               <Button
                 disabled={!formValid}
@@ -212,7 +214,7 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
               />
             </span>
             <div onClick={() => setActiveModal(false) }>
-              <WhiteButton name={buttonsNames[4].name} />
+              <WhiteButton name={buttonsNames[4].name} type="button" />
             </div>
           </div>
         </form>
