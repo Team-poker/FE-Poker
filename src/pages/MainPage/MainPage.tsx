@@ -18,31 +18,30 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobPosition, setJobPosition] = useState("");
-
   const [nameDirty, setNameDirty] = useState(false);
+  const [lastNameDirty, setLastNameDirty] = useState(false);
+  const [jobDirty, setJobDirty] = useState(false);
   const [nameError, setNameError] = useState("Enter your name!");
+  const [lastNameError, setLastNameError] = useState("Enter your last name!");
+  const [jobError, setJobError] = useState("Enter your job!");
   const [formValid, setFormValid] = useState(false);
+
   const blurHandler = (e: any) => {
     switch (e.target.name) {
       case "firstName":
         setNameDirty(true);
         break;
+      case "lastName":
+        setLastNameDirty(true);
+        break;
+      case "jobPosition":
+        setJobDirty(true);
+        break;
       default:
     }
   };
   const inputHandler = (e: any) => {
-    switch (e.target.name) {
-      case "firstName":
-        setFirstName(e.target.value);
-        break;
-      case "lastName":
-        setLastName(e.target.value);
-        break;
-      case "jobPosition":
-        setJobPosition(e.target.value);
-        break;
-    }
-
+    setFirstName(e.target.value);
     const re = new RegExp("^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$");
     if (!re.test(String(e.target.value).toLowerCase())) {
       setNameError("Enter your name correctly!");
@@ -50,6 +49,23 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
       setNameError("");
     }
   };
+  const lastNameHandler = (e:any) => {
+    setLastName(e.target.value);
+    const re = new RegExp("^[a-zA-Z]{4,}(?: [a-zA-Z]+)?(?: [a-zA-Z]+)?$");
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setLastNameError('Enter your last name correctly!');
+    } else {
+      setLastNameError("");
+    }
+  }
+  const jobHandler = (e: any) => {
+    setJobPosition(e.target.value);
+    if (e.target.value === "") {
+      setJobError("Enter your job correctly!");
+    } else {
+      setJobError("");
+    }
+  }
 
   const sendData = (e: any) => {
     e.preventDefault();
@@ -85,13 +101,14 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
     });
   };
 
+
   useEffect(() => {
-    if (nameError) {
+    if (nameError || lastNameError || jobError) {
       setFormValid(false);
     } else {
       setFormValid(true);
     }
-  }, [nameError]);
+  }, [nameError, lastNameError, jobError]);
   const buttonsNames = [
     {
       name: "Start new game",
@@ -149,22 +166,30 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
           <label>
             <span className="input__text">Your last name(optional):</span>
             <br />
+            {lastNameDirty && lastNameError &&  (
+                <div style={{ color: "red" }}>{lastNameError}</div>
+            )}
             <input
               className="input__modal"
+              onBlur={(e) => blurHandler(e)}
               type="text"
               value={lastName}
-              onChange={(e) => inputHandler(e)}
+              onChange={(e) => lastNameHandler(e)}
               name="lastName"
             />
           </label>
           <label>
             <span className="input__text">Your job position(optional):</span>
             <br />
+            {jobDirty && jobError &&  (
+                <div style={{ color: "red" }}>{jobError}</div>
+            )}
             <input
               className="input__modal"
+              onBlur={(e) => blurHandler(e)}
               type="text"
               value={jobPosition}
-              onChange={(e) => inputHandler(e)}
+              onChange={(e) => jobHandler(e)}
               name="jobPosition"
             />
           </label>
@@ -181,17 +206,15 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
               className="cancel__modal"
               onClick={() => setActiveModal(false)}
             >
-              {/* <Link to={`/chat`}> */}
               <Button
                 disabled={!formValid}
                 className="cancel__modal"
                 name={buttonsNames[3].name}
                 type="submit"
               />
-              {/* </Link> */}
             </span>
-            <div onClick={() => setActiveModal(false)}>
-              <WhiteButton name={buttonsNames[4].name} />
+            <div onClick={() => setActiveModal(false) }>
+              <WhiteButton name={buttonsNames[4].name} type="button" />
             </div>
           </div>
         </form>
