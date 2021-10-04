@@ -101,12 +101,12 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
   };
 
   useEffect(() => {
-    if (nameError) {
+    if (nameError || lastNameError || jobError) {
       setFormValid(false);
     } else {
       setFormValid(true);
     }
-  }, [nameError]);
+  }, [nameError, lastNameError, jobError]);
   const buttonsNames = [
     {
       name: "Start new game",
