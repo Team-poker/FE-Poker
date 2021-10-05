@@ -7,10 +7,8 @@ import GameInfo from "./components/Game-info/GameInfo";
 import GameVote from "./components/Game-vote/GameVote";
 import Button from "../Lobby/components/Button/Button";
 import Card, {Cards} from "../Lobby/components/Card/Card";
-import CardItem from "../Lobby/components/Card/CardItem/CardItem";
-import {editCardTitle} from "../../redux/actions";
 // import GameTimer from "./components/Game-info/Game-state/Game-timer/Game-timer";
-import { IAddVote, IVote } from "../../ts/interfaces/app_interfaces";
+import { IVote } from "../../ts/interfaces/app_interfaces";
 import { addCurrentUser, addNewVote, setInitialUsersList } from "../../redux/actions";
 import { socket } from "../../App";
 
@@ -42,7 +40,7 @@ const GamePage = (props: any) => {
     }
 
 // TODO Пока вынесла константой, переделаю, чтобы определять дилера по id
-export const isCurrentPlayerDealer = true;
+// const isCurrentPlayerDealer = true;
 
 const GamePage = (card:any ) => {
     const onDownload = () => {
@@ -71,6 +69,7 @@ const GamePage = (card:any ) => {
     </div>
   );
 };
+}
 
 const mapStateToProps = (state: any) => {
   return {
