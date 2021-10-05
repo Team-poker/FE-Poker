@@ -6,7 +6,10 @@ import Footer from "../Lobby/components/Footer/Footer";
 import GameInfo from "./components/Game-info/GameInfo";
 import GameVote from "./components/Game-vote/GameVote";
 import Button from "../Lobby/components/Button/Button";
-import Card from "../Lobby/components/Card/Card";
+import Card, {Cards} from "../Lobby/components/Card/Card";
+import CardItem from "../Lobby/components/Card/CardItem/CardItem";
+import {editCardTitle} from "../../redux/actions";
+// import GameTimer from "./components/Game-info/Game-state/Game-timer/Game-timer";
 import { IAddVote, IVote } from "../../ts/interfaces/app_interfaces";
 import { addCurrentUser, addNewVote, setInitialUsersList } from "../../redux/actions";
 import { socket } from "../../App";
@@ -33,20 +36,32 @@ const GamePage = (props: any) => {
     };
     props.addCurrentUser(updatedUser);
   });
+    
+    const onDownload = () => {
 
-  return (
-    <div className="game-page">
-      <Header />
-      <main className="game-main">
-        <div className="game-wrapper">
-          <GameInfo socket={socket} />
-          <GameVote socket={socket} />
-        </div>
-        <Button
+    }
+
+// TODO Пока вынесла константой, переделаю, чтобы определять дилера по id
+export const isCurrentPlayerDealer = true;
+
+const GamePage = (card:any ) => {
+    const onDownload = () => {
+
+    }
+    return (
+        <div className="game-page">
+            <Header />
+            <main className="game-main">
+                <div className="game-wrapper">
+                    {/*<GameTimer time={425} />*/}
+                    <GameInfo />
+                    <GameVote />
+                </div>
+          <Button
           type="submit"
           text="Download results"
           class="blue-btn btn-result"
-          // onAction={onDownload}
+          onAction={onDownload}
         />
         {props.activeIssue.length > 0 && <div className="cards-game">
           <Card isEditable={false} />

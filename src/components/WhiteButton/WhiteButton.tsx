@@ -6,7 +6,7 @@ const WhiteButton = (props: any) => {
   return (
     <div>
       <button className="white-button">
-        {name}
+          {props.text}
       </button>
     </div>
   );

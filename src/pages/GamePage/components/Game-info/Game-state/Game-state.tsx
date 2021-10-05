@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import ScrumMasterBlock from "../../../../Lobby/components/Scrum-master/Scrum-master";
-import GameTimer from "./Game-timer/Game-timer";
+// import GameTimer from "./Game-timer/Game-timer";
 import Button from "../../../../Lobby/components/Button/Button";
 import { isCurrentDealer } from "../../../../../utils";
 
@@ -13,7 +13,7 @@ const GameState = (props: any) => {
   return (
     <section className="game-state">
       <ScrumMasterBlock />
-      {!isCurrentPlayerDealer && <GameTimer />}
+      {/*{!isCurrentPlayerDealer && <GameTimer />}*/}
       {!isCurrentPlayerDealer && <Button text="Exit" class="white-btn" />}
       {isCurrentPlayerDealer && <Button text="Stop Game" class="white-btn" />}
     </section>
