@@ -48,9 +48,9 @@ const GamePage = (props: any) => {
           class="blue-btn btn-result"
           // onAction={onDownload}
         />
-        <div className="cards-game">
+        {props.activeIssue.length > 0 && <div className="cards-game">
           <Card isEditable={false} />
-        </div>
+        </div>}
       </main>
       <Footer />
     </div>
@@ -60,6 +60,7 @@ const GamePage = (props: any) => {
 const mapStateToProps = (state: any) => {
   return {
     cards: state.cards,
+    activeIssue: state.activeIssue,
   };
 };
 
