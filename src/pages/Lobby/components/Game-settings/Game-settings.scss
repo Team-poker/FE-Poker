@@ -8,6 +8,12 @@
   color: #000000;
   margin-bottom: 54px;
 }
+.scrum-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 .game-title,
 .game-cards,
 .game-timer,
@@ -20,8 +26,7 @@
   font-size: 24px;
   line-height: 30px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   color: #000000;
   margin-bottom: 20px;
   margin-right: 90px;
