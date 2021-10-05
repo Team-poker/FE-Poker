@@ -12,17 +12,43 @@ import IssuesList from "./components/Issues-list/Issues-list";
 import GameControls from "./components/Game-controls/Game-controls";
 import GameSettings from "./components/Game-settings/Game-settings";
 import Chat from "../../components/Chat/Chat";
-import { updateCardsList, updateIssuesList } from "../../redux/actions";
+import {
+  addCurrentUser,
+  setInitialUsersList,
+  updateCardsList,
+  updateIssuesList,
+} from "../../redux/actions";
+import { isCurrentDealer, isDealerPresent } from "../../utils";
+import { socket } from "../../App";
+
 import "./Lobby.scss";
-import { ICard } from "../../ts/interfaces/app_interfaces";
+import { IUser } from "../../ts/interfaces/app_interfaces";
 
 const Lobby = ({
   isChatOpen,
-  socket,
   updateCardsList,
   updateIssuesList,
+  setInitialUsersList,
+  addCurrentUser,
+  usersList,
+  currentUser,
 }: any) => {
   const history = useHistory();
+
+  socket.on("playerLeft", (newUsers: any) => {
+    setInitialUsersList(newUsers);
+    const user = newUsers.filter((item: any) => item.id === socket.id);
+    const updatedUser = {
+      id: user[0].id,
+      firstName: user[0].firstName,
+      lastName: user[0].lastName,
+      jobPosition: user[0].jobPosition,
+      roomName: "testroom",
+      dealer: user[0].dealer,
+    };
+    addCurrentUser(updatedUser);
+  });
+
   socket.on("startGame", ({ cards, issues }: any) => {
     updateCardsList(cards);
     updateIssuesList(issues);
@@ -34,12 +60,12 @@ const Lobby = ({
       <main className="lobby-main">
         <div className={!isChatOpen ? "wrapper" : "wrapper chat-open"}>
           <LobbyTitle />
-          <ScrumMasterBlock />
+          {usersList && isDealerPresent(usersList) && <ScrumMasterBlock />}
           {/*<GameLink />*/}
           <GameControls socket={socket} />
           <MembersList socket={socket} />
-          <IssuesList />
-          <GameSettings />
+          {isCurrentDealer(currentUser) && <IssuesList />}
+          {isCurrentDealer(currentUser) && <GameSettings />}
         </div>
         <Chat socket={socket} />
       </main>
@@ -51,12 +77,16 @@ const Lobby = ({
 const mapStateToProps = (state: any) => {
   return {
     isChatOpen: state.isChatOpen,
+    usersList: state.usersList,
+    currentUser: state.currentUser,
   };
 };
 
 const mapDispatchToProps = {
   updateCardsList,
   updateIssuesList,
+  setInitialUsersList,
+  addCurrentUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Lobby);

@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-import io from "socket.io-client";
+import {io} from "socket.io-client";
 import MainPage from "./pages/MainPage/MainPage";
 import GamePage from "./pages/GamePage/GamePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Lobby from './pages/Lobby/Lobby';
+import Lobby from "./pages/Lobby/Lobby";
 
-var socket = io.connect("https://pointing-poker123.herokuapp.com/");
+export var socket = io("https://pointing-poker123.herokuapp.com/");
+// localhost:3000
 console.log("SOCKET ID", socket.id);
 
 const App = () => (
@@ -15,11 +16,11 @@ const App = () => (
       <Route path="/" exact>
         <MainPage socket={socket} />
       </Route>
-      <Route path='/lobby'>
+      <Route path="/lobby">
         <Lobby socket={socket} />
-      </Route>  
+      </Route>
       <Route path="/game" exact>
-        <GamePage />
+        <GamePage socket={socket} />
       </Route>
     </Switch>
   </Router>

@@ -22,7 +22,6 @@ export const Cards = ( { cards, createCards, isEditable }: any) => {
             [
                 {image: "./images/cup-png.png", id: "0", title:"Unknown" },
                 {image: "./images/SP.svg", id: "1", title: "1"},
-                {image: "./images/SP.svg", id: "2", title:"1"},
                 {image: "./images/SP.svg", id: "3", title:"2"},
                 {image: "./images/SP.svg", id: "4", title:"3"},
                 {image: "./images/SP.svg", id: "5", title:"5"},
