@@ -16,9 +16,9 @@ const GameSettings = () => {
             <h3 className="settings-main">Game settings:</h3>
             <div className="scrum-list">
                 <div className="game-title">Scram master as player:
-                    <div className="switch-game">
+                    <span className="switch-game">
                         <Switch props="first-switch" />
-                    </div>
+                    </span>
                 </div>
                 <div className="game-cards">Changing card in round end:<span className="switch-game"><Switch props="second-switch"/></span></div>
                 <div className="game-timer">Is timer needed: <span className="switch-game"><Switch props="third-switch" /> </span></div>
