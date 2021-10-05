@@ -21,11 +21,17 @@
 .modal__content {
   padding: 20px;
   background-color: white;
-  width: 40vw;
-  height: 75vh;
+  height: auto;
   transform: scale(.5);
   transition: .4s all;
 }
 .modal__content.active {
   transform: scale(1);
+}
+
+@media screen and (max-width: 1200px) {
+  .modal-content.active {
+    width: 60vw;
+    height: auto;
+  }
 }
