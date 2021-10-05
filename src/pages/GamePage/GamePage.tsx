@@ -34,18 +34,14 @@ const GamePage = (props: any) => {
     };
     props.addCurrentUser(updatedUser);
   });
-    
-    const onDownload = () => {
-
-    }
+  
 
 // TODO Пока вынесла константой, переделаю, чтобы определять дилера по id
 // const isCurrentPlayerDealer = true;
 
-const GamePage = (card:any ) => {
-    const onDownload = () => {
+    // const onDownload = () => {
 
-    }
+    // }
     return (
         <div className="game-page">
             <Header />
@@ -55,12 +51,12 @@ const GamePage = (card:any ) => {
                     <GameInfo />
                     <GameVote />
                 </div>
-          <Button
+          {/* <Button
           type="submit"
           text="Download results"
           class="blue-btn btn-result"
           onAction={onDownload}
-        />
+        /> */}
         {props.activeIssue.length > 0 && <div className="cards-game">
           <Card isEditable={false} />
         </div>}
@@ -68,7 +64,6 @@ const GamePage = (card:any ) => {
       <Footer />
     </div>
   );
-};
 }
 
 const mapStateToProps = (state: any) => {
