@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { connect } from "react-redux";
 
 import Header from "../Lobby/components/Header/Header";
@@ -7,11 +7,19 @@ import GameInfo from "./components/Game-info/GameInfo";
 import GameVote from "./components/Game-vote/GameVote";
 import Button from "../Lobby/components/Button/Button";
 import Card from "../Lobby/components/Card/Card";
+import { IAddVote, IVote } from "../../ts/interfaces/app_interfaces";
+import { addNewVote } from "../../redux/actions";
+import { socket } from "../../App";
 
 import "./GamePage.scss";
 
-const GamePage = (card: any, socket: any) => {
-  const onDownload = () => {};
+const GamePage = (props: any) => {
+  useEffect(() => {
+    socket.on("newVotes", (voteData: Array<IVote>) => {
+      console.log("VOTE c бэка");
+      props.addNewVote(voteData);
+    });
+  }, [socket]);
   return (
     <div className="game-page">
       <Header />
@@ -24,10 +32,10 @@ const GamePage = (card: any, socket: any) => {
           type="submit"
           text="Download results"
           class="blue-btn btn-result"
-          onAction={onDownload}
+          // onAction={onDownload}
         />
         <div className="cards-game">
-          <Card key={card.title + card.image + card.id} isEditable={false} />
+          <Card isEditable={false} />
         </div>
       </main>
       <Footer />
@@ -40,4 +48,9 @@ const mapStateToProps = (state: any) => {
     cards: state.cards,
   };
 };
-export default connect(mapStateToProps, null)(GamePage);
+
+const mapDispatchToProps = {
+  addNewVote,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamePage);

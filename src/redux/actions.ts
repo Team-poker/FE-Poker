@@ -116,7 +116,7 @@ export const setActiveIssue = (issue: string) => {
   };
 };
 
-export const addNewVote = (vote: IVote) => {
+export const addNewVote = (vote: Array<IVote>) => {
   return {
     type: ADD_VOTE,
     payload: vote,

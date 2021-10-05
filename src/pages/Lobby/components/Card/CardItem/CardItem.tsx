@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { editCardTitle } from "../../../../../redux/actions";
-import { ICard } from "../../../../../ts/interfaces/app_interfaces";
+import { addNewVote, editCardTitle } from "../../../../../redux/actions";
+import {
+  ICard,
+  IUser,
+  IVote,
+} from "../../../../../ts/interfaces/app_interfaces";
 import { socket } from "../../../../../App";
 
 import "./CardItem.scss";
@@ -19,6 +23,8 @@ export interface ItemProps extends PropsFromRedux {
   storyPoint?: string;
   id: string;
   isEditable: boolean;
+  currentUserId?: string;
+  activeIssue?: string;
 }
 
 const CardItem = (props: ItemProps) => {
@@ -47,7 +53,13 @@ const CardItem = (props: ItemProps) => {
 
   const handleVote = (e: any) => {
     e.stopPropagation();
-    socket.emit("userVote", props.title);
+    const newVote = {
+      userId: props.currentUserId,
+      issueTitle: props.activeIssue,
+      userVote: props.title,
+    };
+    // props.addNewVote(newVote);
+    socket.emit("userVote", newVote);
   };
 
   // const handleTitleReset = (e: any) => {
@@ -94,7 +106,15 @@ const CardItem = (props: ItemProps) => {
   );
 };
 
+const mapStateToProps = (state: any) => {
+  return {
+    currentUserId: state.currentUser.id,
+    activeIssue: state.activeIssue,
+  };
+};
+
 const mapDispatchToProps = {
   editCardTitle,
+  addNewVote,
 };
-export default connect(null, mapDispatchToProps)(CardItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CardItem);
