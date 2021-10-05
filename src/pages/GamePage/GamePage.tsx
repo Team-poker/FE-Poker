@@ -26,8 +26,8 @@ const GamePage = (card:any ) => {
             <Header />
             <main className="game-main">
                 <div className="game-wrapper">
-                    <GameInfo />
                     {/*<GameTimer time={425} />*/}
+                    <GameInfo />
                     <GameVote />
                 </div>
                 <Button type="submit" text="Download results" class="blue-btn btn-result" onAction={onDownload} />
