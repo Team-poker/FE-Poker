@@ -1,7 +1,7 @@
 import {
   CREATE_CARDS,
   CREATE_ISSUE,
-  CREATE_RESULT,
+  CREATE_RESULT, CREATE_TIMER,
   EDIT_CARD_TITLE,
   EDIT_TITLE,
   SET_CARDSLIST,
@@ -68,7 +68,11 @@ export interface IResult {
   title: string;
   score: string;
 }
-
+ export interface ITimer {
+  time: number;
+  minutes: number;
+  seconds: number;
+ }
 //Actions:
 
 export interface ICreateIssue {
@@ -88,6 +92,11 @@ export interface IEditCards {
 export interface ICreateResult {
   type: typeof CREATE_RESULT;
   payload: IResult;
+}
+
+export interface ICreateTimer {
+  type: typeof CREATE_TIMER;
+  payload: ITimer;
 }
 
 export interface IAddUser {

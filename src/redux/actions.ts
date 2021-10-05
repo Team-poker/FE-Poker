@@ -4,7 +4,7 @@ import {
   IUser,
   IIssue,
   IEditCard,
-  IResult,
+  IResult, ITimer,
 } from "../ts/interfaces/app_interfaces";
 
 import {
@@ -19,7 +19,7 @@ import {
   UPDATE_USERSLIST,
   SET_USERSLIST,
   SET_ISSUESLIST,
-  SET_CARDSLIST,
+  SET_CARDSLIST, CREATE_TIMER,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -105,3 +105,10 @@ export const updateIssuesList = (issuesList: Array<IIssue>) => {
     payload: issuesList,
   };
 };
+
+export const createTimer = (timer: ITimer) => {
+  return {
+    type: CREATE_TIMER,
+    payload: timer,
+  }
+}
