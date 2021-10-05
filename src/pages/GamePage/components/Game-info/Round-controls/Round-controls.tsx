@@ -13,7 +13,7 @@ const RoundControls = () => {
     <section className="round-controls">
       {isNewRound && (
         <div className="new-round-control">
-          <GameTimer />
+          <GameTimer timer={425} />
           <Button className="blue-btn" text="Run Round" />
         </div>
       )}

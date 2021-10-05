@@ -11,6 +11,8 @@ import Card, {Cards} from "../Lobby/components/Card/Card";
 import CardItem from "../Lobby/components/Card/CardItem/CardItem";
 import {editCardTitle} from "../../redux/actions";
 import {connect} from "react-redux";
+// import GameTimer from "./components/Game-info/Game-state/Game-timer/Game-timer";
+
 
 // TODO Пока вынесла константой, переделаю, чтобы определять дилера по id
 export const isCurrentPlayerDealer = true;
@@ -25,6 +27,7 @@ const GamePage = (card:any ) => {
             <main className="game-main">
                 <div className="game-wrapper">
                     <GameInfo />
+                    {/*<GameTimer time={425} />*/}
                     <GameVote />
                 </div>
                 <Button type="submit" text="Download results" class="blue-btn btn-result" onAction={onDownload} />

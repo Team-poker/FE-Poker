@@ -42,6 +42,14 @@
   margin-left: 0px;
   margin-top: 0px;
 }
+.modal__name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80vw;
+  height: auto;
+
+}
 .input__text {
   font-family: Roboto, sans-serif;
   font-style: normal;

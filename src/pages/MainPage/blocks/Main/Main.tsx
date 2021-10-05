@@ -9,14 +9,6 @@ const Main = () => {
   const poker = 'Planning';
   const parag = 'Start your planning:';
   const buttonText = 'Create session:';
-  const buttonsNames = [
-    {
-      name: 'Start new game',
-    },
-    {
-      name: 'Connect',
-    },
-  ];
   return (
     <div className="main-wrapper">
       <div className="main">
@@ -36,16 +28,7 @@ const Main = () => {
             {buttonText}
           </span>
         </div>
-        <div className="text">OR:</div>
-        <div className="link-button">
-          <div className="link-text">
-            Connect to lobby by
-            <a className="main-link" href="#"> URL:</a>
-          </div>
-        </div>
         <div className="span-text">
-          <Input />
-          <span className="button-link"><Button className="button-link" name={buttonsNames[1].name} /></span>
         </div>
       </div>
     </div>
