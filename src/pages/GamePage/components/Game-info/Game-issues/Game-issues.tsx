@@ -5,15 +5,21 @@ import Issue from "./Issue/Issue";
 
 import "./Game-issues.scss";
 
-const GameIssues = ({ issues }: any) => {
+const GameIssues = ({ issues, socket }: any) => {
   const issuesList = issues.map((issue: IIssue) => {
     return (
-      <Issue name={issue.title} key={issue.title} priority={issue.priority} />
+      <Issue
+        name={issue.title}
+        key={issue.title}
+        priority={issue.priority}
+        socket={socket}
+      />
     );
   });
   return (
     <ul className="game-issues">
       {issuesList}
+      {issuesList.length === 0 && <p>Add issues to start planning</p>}
       <li className="new-issue">
         <span>Create new Issue</span>
         <img src={require("../../../../../../public/icons/plus.svg")} />

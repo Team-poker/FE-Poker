@@ -13,14 +13,17 @@ import GameControls from "./components/Game-controls/Game-controls";
 import GameSettings from "./components/Game-settings/Game-settings";
 import Chat from "../../components/Chat/Chat";
 import { updateCardsList, updateIssuesList } from "../../redux/actions";
+import { isCurrentDealer, isDealerPresent } from "../../utils";
+
 import "./Lobby.scss";
-import { ICard } from "../../ts/interfaces/app_interfaces";
 
 const Lobby = ({
   isChatOpen,
   socket,
   updateCardsList,
   updateIssuesList,
+  usersList,
+  currentUser,
 }: any) => {
   const history = useHistory();
   socket.on("startGame", ({ cards, issues }: any) => {
@@ -34,12 +37,12 @@ const Lobby = ({
       <main className="lobby-main">
         <div className={!isChatOpen ? "wrapper" : "wrapper chat-open"}>
           <LobbyTitle />
-          <ScrumMasterBlock />
+          {isDealerPresent(usersList) && <ScrumMasterBlock />}
           {/*<GameLink />*/}
           <GameControls socket={socket} />
           <MembersList socket={socket} />
-          <IssuesList />
-          <GameSettings />
+          {isCurrentDealer(currentUser) && <IssuesList />}
+          {isCurrentDealer(currentUser) && <GameSettings />}
         </div>
         <Chat socket={socket} />
       </main>
@@ -51,6 +54,8 @@ const Lobby = ({
 const mapStateToProps = (state: any) => {
   return {
     isChatOpen: state.isChatOpen,
+    usersList: state.usersList,
+    currentUser: state.currentUser,
   };
 };
 

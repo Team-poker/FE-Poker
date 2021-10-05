@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { editTitle } from "../../../../redux/actions";
+import { isCurrentDealer } from "../../../../utils";
 
 import "./Lobby-title.scss";
 
@@ -36,12 +37,14 @@ const LobbyTitle = (props: any) => {
       {!isEditing && (
         <>
           <h1 className="lobby-title">{props.title}</h1>
-          <span className="edit-title" onClick={handleTitleEdit}>
-            <img
-              src={require("../../../../../public/pen.svg")}
-              alt="Edit title"
-            ></img>
-          </span>
+          {isCurrentDealer(props.currentUser) && (
+            <span className="edit-title" onClick={handleTitleEdit}>
+              <img
+                src={require("../../../../../public/pen.svg")}
+                alt="Edit title"
+              ></img>
+            </span>
+          )}
         </>
       )}
       {isEditing && (
@@ -78,6 +81,7 @@ const LobbyTitle = (props: any) => {
 const mapStateToProps = (state: any) => {
   return {
     title: state.gameTitle,
+    currentUser: state.currentUser,
   };
 };
 

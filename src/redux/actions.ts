@@ -20,6 +20,7 @@ import {
   SET_USERSLIST,
   SET_ISSUESLIST,
   SET_CARDSLIST,
+  SET_ACTIVE_ISSUE,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -103,5 +104,12 @@ export const updateIssuesList = (issuesList: Array<IIssue>) => {
   return {
     type: SET_ISSUESLIST,
     payload: issuesList,
+  };
+};
+
+export const setActiveIssue = (issue: string) => {
+  return {
+    type: SET_ACTIVE_ISSUE,
+    payload: issue,
   };
 };

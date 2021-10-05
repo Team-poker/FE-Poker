@@ -7,6 +7,7 @@ import { titleReducer } from "./titleReducer";
 import { chatReducer } from "./chatReducer";
 import { resultReducer } from "./resultREducer";
 import { usersReducer } from "./usersReducer";
+import { currentIssueReducer } from "./currentIssueReducer";
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   gameTitle: titleReducer,
   isChatOpen: chatReducer,
   result: resultReducer,
+  activeIssue: currentIssueReducer,
 });
 
 export default rootReducer;
