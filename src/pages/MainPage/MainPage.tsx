@@ -101,6 +101,20 @@ const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
     });
   };
 
+  socket.on("playerLeft", (newUsers: any) => {
+    setInitialUsersList(newUsers);
+    const user = newUsers.filter((item: any) => item.id === socket.id);
+    const updatedUser = {
+      id: user[0].id,
+      firstName: user[0].firstName,
+      lastName: user[0].lastName,
+      jobPosition: user[0].jobPosition,
+      roomName: "testroom",
+      dealer: user[0].dealer,
+    };
+    addCurrentUser(updatedUser);
+  });
+
 
   useEffect(() => {
     if (nameError || lastNameError || jobError) {

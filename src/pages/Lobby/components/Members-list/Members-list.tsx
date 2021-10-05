@@ -20,8 +20,8 @@ const MembersList = ({
     });
   }, [socket]);
 
-  const members = usersList.filter((player: any) => !player.dealer);
-  const membersItems = members.map((member: any) => {
+  const members = usersList?.filter((player: any) => !player.dealer);
+  const membersItems = members?.map((member: any) => {
     return (
       <MemberBage
         key={member.id}
@@ -36,7 +36,7 @@ const MembersList = ({
   return (
     <section className="members-list">
       <h2 className="members-headline">Members:</h2>
-      {members.length === 0 && <p>Waiting for the players...</p>}
+      {!members || members.length === 0 && <p>Waiting for the players...</p>}
       <div className="members-wrapper">{membersItems}</div>
     </section>
   );
