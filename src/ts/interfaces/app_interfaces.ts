@@ -1,4 +1,5 @@
 import {
+  ADD_VOTE,
   CREATE_CARDS,
   CREATE_ISSUE,
   CREATE_RESULT,
@@ -64,6 +65,12 @@ export interface IIssue {
   link: string;
 }
 
+export interface IVote {
+  userId: string,
+  issueTitle: string,
+  userVote: string,
+}
+
 export interface IResult {
   id: string;
   title: string;
@@ -109,4 +116,9 @@ export interface ISetIssues {
 export interface ISetActiveIssue {
   type: typeof SET_ACTIVE_ISSUE;
   payload: string;
+}
+
+export interface IAddVote {
+  type: typeof ADD_VOTE;
+  payload: IVote;
 }

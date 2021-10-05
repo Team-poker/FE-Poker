@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { setActiveIssue } from "../../../../../../redux/actions";
+import { socket } from "../../../../../../App";
 
 import "./Issue.scss";
 
-const Issue = ({ name, socket, activeIssue, setActiveIssue }: any) => {
-  const isActive = name === activeIssue;
-  const chooseIssue = () => {
-    setActiveIssue(name);
-    socket.emit("newActiveIssue", name);
-  };
+const Issue = ({ name, activeIssue, setActiveIssue }: any) => {
   useEffect(() => {
-    socket.on("setActiveIssue", (name: string) => {
+    socket.on("setIssue", (name: string) => {
       setActiveIssue(name);
     });
   }, [socket]);
+  
+  const isActive = name === activeIssue;
+  const chooseIssue = (e: any) => {
+    e.stopPropagation();
+    setActiveIssue(name);
+    socket.emit("newActiveIssue", (name));
+  };
 
   return (
     <li

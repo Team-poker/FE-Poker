@@ -13,3 +13,4 @@ export const UPDATE_USERSLIST = "UPDATE_USERSLIST";
 export const SET_CARDSLIST = "SET_CARDSLIST";
 export const SET_ISSUESLIST = "SET_ISSUESLIST";
 export const SET_ACTIVE_ISSUE = "SET_ACTIVE_ISSUE";
+export const ADD_VOTE = "ADD_VOTE";

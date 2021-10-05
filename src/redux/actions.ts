@@ -5,6 +5,7 @@ import {
   IIssue,
   IEditCard,
   IResult,
+  IVote,
 } from "../ts/interfaces/app_interfaces";
 
 import {
@@ -21,6 +22,7 @@ import {
   SET_ISSUESLIST,
   SET_CARDSLIST,
   SET_ACTIVE_ISSUE,
+  ADD_VOTE,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -113,3 +115,10 @@ export const setActiveIssue = (issue: string) => {
     payload: issue,
   };
 };
+
+export const addNewVote = (vote: IVote) => {
+  return {
+    type: ADD_VOTE,
+    payload: vote,
+  }
+}
