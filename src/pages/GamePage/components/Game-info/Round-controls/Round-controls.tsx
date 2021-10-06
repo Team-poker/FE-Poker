@@ -21,9 +21,9 @@ const RoundControls = (props: any) => {
         <>
           <div className="reset-round-control">
             <GameTimer time={300} />
-            <Button class="blue-btn" text="Restart Round" />
+            {/* <Button class="blue-btn" text="Restart Round" /> */}
           </div>
-          <Button class="blue-btn" text="Next Issue" />
+          {/* <Button class="blue-btn" text="Next Issue" /> */}
         </>
       )}
     </section>

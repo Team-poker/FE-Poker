@@ -23,7 +23,6 @@ const GameIssues = ({ issues }: any) => {
         {issuesList}
         {issuesList.length === 0 && <p>Add issues to start planning</p>}
       </ul>
-      <IssueModal />
     </section>
   );
 };
