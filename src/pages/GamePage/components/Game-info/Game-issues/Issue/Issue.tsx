@@ -6,7 +6,7 @@ import { isCurrentDealer } from "../../../../../../utils";
 
 import "./Issue.scss";
 
-const Issue = ({ name, activeIssue, setActiveIssue, currentUser }: any) => {
+const Issue = ({ name, activeIssue, setActiveIssue, currentUser, isAvailableToChoose }: any) => {
   useEffect(() => {
     socket.on("setIssue", (name: string) => {
       setActiveIssue(name);
@@ -16,6 +16,7 @@ const Issue = ({ name, activeIssue, setActiveIssue, currentUser }: any) => {
   const isActive = name === activeIssue;
   const chooseIssue = (e: any) => {
     e.stopPropagation();
+    if(!isAvailableToChoose) return;
     if (!isCurrentDealer(currentUser)) return;
     setActiveIssue(name);
     socket.emit("newActiveIssue", (name));
