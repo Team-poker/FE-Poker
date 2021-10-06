@@ -20,7 +20,15 @@ const GameControls = ({ issues, cards, currentUser }: any) => {
 
   const handleCancelGame = () => {
     socket.emit("gameCanceled");
-  }
+  };
+
+  const handleExitGame = () => {
+    socket.emit("exitGame");
+  };
+
+  socket.on("confirmedExit", () => {
+    history.push("/");
+  });
 
   return (
     <div className="game-controls">
@@ -28,10 +36,14 @@ const GameControls = ({ issues, cards, currentUser }: any) => {
         <Button text="Start game" class="blue-btn" onAction={startGame} />
       )}
       {isCurrentDealer(currentUser) && (
-        <Button text="Cancel game" class="white-btn" onAction={handleCancelGame} />
+        <Button
+          text="Cancel game"
+          class="white-btn"
+          onAction={handleCancelGame}
+        />
       )}
       {!isCurrentDealer(currentUser) && (
-        <Button text="Exit" class="white-btn" />
+        <Button text="Exit" class="white-btn" onAction={handleExitGame} />
       )}
     </div>
   );
