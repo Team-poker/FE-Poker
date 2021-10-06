@@ -13,7 +13,7 @@ const GameVote = (props: any) => {
     <VoteRow player={item} key={item.id} />
   ));
   return (
-    <aside className="game-vote">
+    <aside className={!props.isChatOpen ? "game-vote" : "game-vote open-chat"}>
       <div className="voting-title">
         <div>Score:</div>
         <div>Players:</div>
@@ -27,6 +27,7 @@ const mapStateToProps = (state: any) => {
   return {
     usersList: state.usersList,
     currentUser: state.currentUser,
+    isChatOpen: state.isChatOpen,
   };
 };
 

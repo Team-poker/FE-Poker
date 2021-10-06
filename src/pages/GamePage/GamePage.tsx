@@ -13,6 +13,7 @@ import { addCurrentUser, addNewVote, setInitialUsersList } from "../../redux/act
 import { socket } from "../../App";
 
 import "./GamePage.scss";
+import Chat from "../../components/Chat/Chat";
 
 const GamePage = (props: any) => {
   useEffect(() => {
@@ -46,20 +47,21 @@ const GamePage = (props: any) => {
         <div className="game-page">
             <Header />
             <main className="game-main">
-                <div className={!props.isChatOpen ? "game-wrapper" : "game-wrapper chat-open"}>
-                    {/*<GameTimer time={425} />*/}
-                    <GameInfo />
-                    <GameVote />
-                    {props.activeIssue.length > 0 && <div className="cards-game">
-                        <Card isEditable={false} />
-                    </div>}
-                </div>
-            {/* <Button
-            type="submit"
-            text="Download results"
-            class="blue-btn btn-result"
-            onAction={onDownload}
-            /> */}
+              <div className="game-wrapper">
+                  {/*<GameTimer time={425} />*/}
+                  <GameInfo />
+                  {props.activeIssue.length > 0 && <div className="cards-game">
+                      <Card isEditable={false} />
+                  </div>}
+              </div>
+              {/* <Button
+              type="submit"
+              text="Download results"
+              class="blue-btn btn-result"
+              onAction={onDownload}
+              /> */}
+              <GameVote />
+              <Chat socket={socket} />
         
             </main>
             <Footer />
@@ -71,7 +73,6 @@ const mapStateToProps = (state: any) => {
   return {
     cards: state.cards,
     activeIssue: state.activeIssue,
-    isChatOpen: state.isChatOpen,
   };
 };
 

@@ -7,6 +7,7 @@
   margin: 0 auto;
   font-family: Ruda, sans-serif;
 }
+
 //.cards-info {
 //  visibility: hidden;
 //}
@@ -19,4 +20,10 @@
 }
 .cards-game {
   margin-left: 370px;
+}
+
+.game-main {
+  .messages_list {
+    height: 40vh;
+  }
 }
