@@ -22,7 +22,6 @@ import { isCurrentDealer, isDealerPresent } from "../../utils";
 import { socket } from "../../App";
 
 import "./Lobby.scss";
-import { IUser } from "../../ts/interfaces/app_interfaces";
 
 const Lobby = ({
   isChatOpen,
@@ -49,22 +48,27 @@ const Lobby = ({
     addCurrentUser(updatedUser);
   });
 
+  socket.on("gameCanceled", () => {
+    history.push("/");
+  });
+
   socket.on("startGame", ({ cards, issues }: any) => {
     updateCardsList(cards);
     updateIssuesList(issues);
     history.push("/game");
   });
+
   return (
     <div className="lobby">
       <Header />
       <main className="lobby-main">
         <div className={!isChatOpen ? "wrapper" : "wrapper chat-open"}>
-          <LobbyTitle />
+          <LobbyTitle isAvailableToEdit={true} />
           {usersList && isDealerPresent(usersList) && <ScrumMasterBlock />}
           {/*<GameLink />*/}
           <GameControls socket={socket} />
-          <MembersList socket={socket} />
           {isCurrentDealer(currentUser) && <IssuesList />}
+          <MembersList socket={socket} />
           {isCurrentDealer(currentUser) && <GameSettings />}
         </div>
         <Chat socket={socket} />

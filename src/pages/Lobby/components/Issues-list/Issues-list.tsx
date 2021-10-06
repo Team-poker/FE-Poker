@@ -1,24 +1,33 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import IssueItem from "./Issue-item/Issue-item";
-// import NewIssue from "./New-issue/New-issue";
+import Issue from "../../../GamePage/components/Game-info/Game-issues/Issue/Issue";
 import { createIssue } from "../../../../redux/actions";
 import { IIssue } from "../../../../ts/interfaces/app_interfaces";
 import IssueModal from "./Issue-modal/Issue-modal";
 
 const IssuesList = ({ issues }: any) => {
-  const issuesData = issues.map((issue: IIssue) => (
-    <IssueItem
-      title={issue.title}
-      priority={issue.priority}
-      key={issue.title + issue.priority}
-    />
-  ));
+  let issuesData: any;
+  if (issues && issues.length > 0)
+    issuesData = issues.map((issue: IIssue) => (
+      <Issue
+        name={issue.title}
+        key={issue.title}
+        priority={issue.priority}
+        isAvailableToChoose={false}
+      />
+    ));
+
   return (
     <section className="issues">
-      <h2>Issues</h2>
-      <ul className="issues-list">{issuesData}</ul>
+      {issues.length === 0 && <p>Add issues to start planning</p>}
+      <ul className="game-issues">
+        {issues.length > 0 && issuesData}
+        {/* <li className="new-issue" onClick={() => setModalOpened(true)}>
+          <span>Create new Issue</span>
+          <img src={require("../../../../../public/icons/plus.svg")} />
+        </li> */}
+      </ul>
       <IssueModal />
     </section>
   );
