@@ -7,9 +7,9 @@ import { IUser } from "../../../../ts/interfaces/app_interfaces";
 import { isCurrentUser } from "../../../../utils";
 
 import "./Members-list.scss";
+import {socket} from "../../../../App";
 
 const MembersList = ({
-  socket,
   addUserToUserslist,
   usersList,
   currentUser,

@@ -6,7 +6,7 @@ import GamePage from "./pages/GamePage/GamePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Lobby from './pages/Lobby/Lobby';
 
-var socket = io.connect("https://pointing-poker123.herokuapp.com/");
+export var socket = io.connect("https://pointing-poker123.herokuapp.com/");
 console.log("SOCKET ID", socket.id);
 
 const App = () => (

@@ -36,8 +36,8 @@ const Lobby = ({
           <LobbyTitle />
           <ScrumMasterBlock />
           {/*<GameLink />*/}
-          <GameControls socket={socket} />
-          <MembersList socket={socket} />
+          <GameControls />
+          <MembersList />
           <IssuesList />
           <GameSettings />
         </div>
