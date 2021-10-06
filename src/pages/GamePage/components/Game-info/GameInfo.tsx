@@ -23,7 +23,7 @@ const GameInfo = ({activeIssue}: any) => {
         <RoundControls />
         <GameResults />
       </section>
-      <RoundControls />
+      {/* <RoundControls /> */}
       {/* <Statistics /> */}
     </div>
   );

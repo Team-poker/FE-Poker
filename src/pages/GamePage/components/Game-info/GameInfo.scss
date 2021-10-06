@@ -3,3 +3,9 @@
   border-right: 1px solid rgb(170, 160, 160);
 
 }
+
+.game-flow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}

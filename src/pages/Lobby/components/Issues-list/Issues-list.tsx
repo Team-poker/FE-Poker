@@ -8,7 +8,7 @@ import IssueModal from "./Issue-modal/Issue-modal";
 
 const IssuesList = ({ issues }: any) => {
   let issuesData: any;
-  if (issues.length > 0)
+  if (issues && issues.length > 0)
     issuesData = issues.map((issue: IIssue) => (
       <Issue
         name={issue.title}
@@ -20,7 +20,7 @@ const IssuesList = ({ issues }: any) => {
 
   return (
     <section className="issues">
-      {issuesData.length === 0 && <p>Add issues to start planning</p>}
+      {issues.length === 0 && <p>Add issues to start planning</p>}
       <ul className="game-issues">
         {issues.length > 0 && issuesData}
         {/* <li className="new-issue" onClick={() => setModalOpened(true)}>
