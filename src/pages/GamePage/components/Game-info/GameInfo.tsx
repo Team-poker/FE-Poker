@@ -7,13 +7,13 @@ import RoundControls from "./Round-controls/Round-controls";
 
 import "./GameInfo.scss";
 
-const GameInfo = () => {
+const GameInfo = (socket: any) => {
   return (
     <div className="game-info">
       <GameTitle />
       <GameState />
       <section className="game-flow">
-        <GameIssues />
+        <GameIssues socket={socket} />
         <RoundControls />
       </section>
       {/* <Statistics /> */}

@@ -11,7 +11,9 @@ interface IBageProps {
 }
 
 const MemberBage = (props: IBageProps) => {
-  const initials = props.firstName.charAt(0) + props.lastName.charAt(0);
+  const initials =
+    props.firstName.charAt(0).toUpperCase() +
+    props.lastName.charAt(0).toUpperCase();
   return (
     <div className="member-bage">
       <div className="member-picture">
@@ -22,12 +24,14 @@ const MemberBage = (props: IBageProps) => {
         <p className="member-name">{`${props.firstName} ${props.lastName}`}</p>
         <span className="dealer-title">{props.jobPosition}</span>
       </div>
-      <div className="delete-member-icon">
-        <img
-          src={require("../../../../../public/delete-player-item.svg")}
-          alt="Delete member"
-        />
-      </div>
+      {!props.current && (
+        <div className="delete-member-icon">
+          <img
+            src={require("../../../../../public/delete-player-item.svg")}
+            alt="Delete member"
+          />
+        </div>
+      )}
     </div>
   );
 };

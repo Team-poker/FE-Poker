@@ -7,7 +7,9 @@ import "./Scrum-master.css";
 // TO DO: если с бэка пришло фото - отображать фото вместо инициалов в блоке dealer-picture
 const ScrumMasterBlock = (props: any) => {
   const dealer = props.usersList.find((player: any) => player.dealer === true);
-  const initials = dealer.firstName.charAt(0) + dealer.lastName.charAt(0);
+  const initials =
+    dealer.firstName.charAt(0).toUpperCase() +
+    dealer.lastName.charAt(0).toUpperCase();
   const current = isCurrentUser(dealer.id, props.currentUser.id);
 
   return (
