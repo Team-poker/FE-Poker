@@ -11,8 +11,10 @@ import GameResults from "./Game-results/Game-results";
 import { socket } from "../../../../App";
 import Card from "../../../Lobby/components/Card/Card";
 import IssueModal from "../../../Lobby/components/Issues-list/Issue-modal/Issue-modal";
+import { isCurrentDealer } from "../../../../utils";
 
-const GameInfo = ({ activeIssue }: any) => {
+const GameInfo = ({ activeIssue, currentUser }: any) => {
+  const isDealer = isCurrentDealer(currentUser);
   return (
     <div className="game-info">
       <GameTitle isAvailableToEdit={false} />
@@ -29,7 +31,7 @@ const GameInfo = ({ activeIssue }: any) => {
         )}
       </section>
       <section className="game-flow">
-        <IssueModal />
+        {isDealer && <IssueModal />}
         <GameResults />
       </section>
 
@@ -41,6 +43,7 @@ const GameInfo = ({ activeIssue }: any) => {
 const mapStateToProps = (state: any) => {
   return {
     activeIssue: state.activeIssue,
+    currentUser: state.currentUser,
   };
 };
 
