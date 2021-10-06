@@ -5,7 +5,7 @@ import {
   IIssue,
   IEditCard,
   IResult,
-  IVote, ITimer, IDealerPlayer,
+  IVote, IDealerPlayer,
 } from "../ts/interfaces/app_interfaces";
 
 import {
@@ -130,7 +130,7 @@ export const createPlayer = (isDealerPlayer: boolean) => {
   }
 }
 
-export const createTimer = (time: ITimer) => {
+export const createTimer = (time: number) => {
   return {
     type: CREATE_TIMER,
     payload: time,

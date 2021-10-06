@@ -72,11 +72,11 @@ export interface IVote {
   userVote: string,
 }
 
-export interface ITimer {
-  time: number;
-  minutes: number;
-  seconds: number;
-}
+// export interface ITimer {
+//   time: number;
+//   minutes: number;
+//   seconds: number;
+// }
 
 export interface IResult {
   id: string;
@@ -144,5 +144,5 @@ export interface ICreateTimerSettings {
 }
 export interface ICreateTimer {
   type: typeof CREATE_TIMER;
-  payload: ITimer;
+  payload: number;
 }

@@ -64,11 +64,6 @@ const CardItem = (props: ItemProps) => {
     socket.emit("userVote", newVote);
   };
 
-  // const handleTitleReset = (e: any) => {
-  //     e.preventDefault();
-  //     setIsEditing(false);
-  //     setEnteredValue(newTitle);
-  // };
   return (
     <>
       <div className={!isCardClicked ? "card-item" : "card-item active"} onClick={handleVote}>

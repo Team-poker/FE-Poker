@@ -8,6 +8,7 @@ import {createPlayer, createTimer, createTimerSettings} from "../../../../redux/
 
 const GameSettings = ( props: any, {isDealerPlayer} : any) => {
     const [value, onChange] = useState(1);
+    const [enteredValue, setEnteredValue] = useState(30);
     useEffect(()=>{
         const ele = document.querySelector<HTMLElement>('.buble');
         if (ele) {
@@ -25,7 +26,7 @@ const GameSettings = ( props: any, {isDealerPlayer} : any) => {
     }
     const getTimer = () => {
         const time = {
-            time: 60,
+            time: enteredValue + 60,
             minutes: 1,
             seconds: 0
         }

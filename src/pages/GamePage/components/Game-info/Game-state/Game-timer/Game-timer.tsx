@@ -25,7 +25,7 @@ const GameTimer = ({time}: any) => {
   }, [state.time]);
   return (
       <div>
-        <h2>{`${state.minutes}:${state.seconds < 10 ? `0${state.seconds}` : state.seconds}`}</h2>
+        <h2 className="timer-wrapper">{`${state.minutes}:${state.seconds < 10 ? `0${state.seconds}` : state.seconds}`}</h2>
       </div>
   );
 };
