@@ -6,6 +6,7 @@ import GameIssues from "./Game-issues/Game-issues";
 import RoundControls from "./Round-controls/Round-controls";
 
 import "./GameInfo.scss";
+import GameResults from "./Game-results/Game-results";
 
 const GameInfo = (socket: any) => {
   return (
@@ -14,8 +15,9 @@ const GameInfo = (socket: any) => {
       <GameState />
       <section className="game-flow">
         <GameIssues socket={socket} />
-        <RoundControls />
+        <GameResults />
       </section>
+      <RoundControls />
       {/* <Statistics /> */}
     </div>
   );
