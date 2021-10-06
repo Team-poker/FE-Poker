@@ -24,8 +24,12 @@ const GameSettings = ( props: any, {isDealerPlayer} : any) => {
         props.createTimerSettings(true);
     }
     const getTimer = () => {
-
-        props.createTimer(value);
+        const time = {
+            time: 60,
+            minutes: 1,
+            seconds: 0
+        }
+        props.createTimer(time);
     }
     return (
         <>

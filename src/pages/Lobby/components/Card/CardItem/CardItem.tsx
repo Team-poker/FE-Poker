@@ -30,6 +30,7 @@ export interface ItemProps extends PropsFromRedux {
 const CardItem = (props: ItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [enteredValue, setEnteredValue] = useState("");
+  const [isCardClicked, setIsCardClicked] = useState(false);
   const handleTitleEdit = () => {
     setIsEditing(true);
   };
@@ -53,6 +54,7 @@ const CardItem = (props: ItemProps) => {
 
   const handleVote = (e: any) => {
     e.stopPropagation();
+    setIsCardClicked(true);
     const newVote = {
       userId: props.currentUserId,
       issueTitle: props.activeIssue,
@@ -69,7 +71,7 @@ const CardItem = (props: ItemProps) => {
   // };
   return (
     <>
-      <div className="card-item" onClick={handleVote}>
+      <div className={!isCardClicked ? "card-item" : "card-item active"} onClick={handleVote}>
         {!isEditing && (
           <>
             <div className="title-card">
