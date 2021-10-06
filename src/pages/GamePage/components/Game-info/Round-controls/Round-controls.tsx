@@ -20,7 +20,7 @@ const RoundControls = (props: any) => {
       {!isNewRound && (
         <>
           <div className="reset-round-control">
-            <GameTimer time={props.time} />
+            <GameTimer time={300} />
             <Button class="blue-btn" text="Restart Round" />
           </div>
           <Button class="blue-btn" text="Next Issue" />
