@@ -1,12 +1,9 @@
 .game-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
   width: 90vw;
   margin: 0 auto;
   font-family: Ruda, sans-serif;
 }
+
 //.cards-info {
 //  visibility: hidden;
 //}
@@ -17,6 +14,9 @@
   margin-top: 75px;
   margin-left: 70px;
 }
-.cards-game {
-  margin-left: 370px;
+
+.game-main {
+  .messages_list {
+    height: 40vh;
+  }
 }

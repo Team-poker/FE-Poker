@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Lobby from "./pages/Lobby/Lobby";
 
 export var socket = io("https://pointing-poker123.herokuapp.com/");
-// localhost:3000
 console.log("SOCKET ID", socket.id);
 
 const App = () => (

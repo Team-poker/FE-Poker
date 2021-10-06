@@ -6,13 +6,13 @@ import Footer from "../Lobby/components/Footer/Footer";
 import GameInfo from "./components/Game-info/GameInfo";
 import GameVote from "./components/Game-vote/GameVote";
 import Button from "../Lobby/components/Button/Button";
-import Card, {Cards} from "../Lobby/components/Card/Card";
 // import GameTimer from "./components/Game-info/Game-state/Game-timer/Game-timer";
 import { IVote } from "../../ts/interfaces/app_interfaces";
 import { addCurrentUser, addNewVote, setInitialUsersList } from "../../redux/actions";
 import { socket } from "../../App";
 
 import "./GamePage.scss";
+import Chat from "../../components/Chat/Chat";
 
 const GamePage = (props: any) => {
   useEffect(() => {
@@ -46,30 +46,28 @@ const GamePage = (props: any) => {
         <div className="game-page">
             <Header />
             <main className="game-main">
-                <div className="game-wrapper">
-                    {/*<GameTimer time={425} />*/}
-                    <GameInfo />
-                    <GameVote />
-                </div>
-          {/* <Button
-          type="submit"
-          text="Download results"
-          class="blue-btn btn-result"
-          onAction={onDownload}
-        /> */}
-        {props.activeIssue.length > 0 && <div className="cards-game">
-          <Card isEditable={false} />
-        </div>}
-      </main>
-      <Footer />
-    </div>
+              <div className="game-wrapper">
+                  {/*<GameTimer time={425} />*/}
+                  <GameInfo />
+              </div>
+              {/* <Button
+              type="submit"
+              text="Download results"
+              class="blue-btn btn-result"
+              onAction={onDownload}
+              /> */}
+              <GameVote />
+              <Chat socket={socket} />
+        
+            </main>
+            <Footer />
+        </div>
   );
 }
 
 const mapStateToProps = (state: any) => {
   return {
     cards: state.cards,
-    activeIssue: state.activeIssue,
   };
 };
 
