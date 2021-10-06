@@ -26,6 +26,11 @@ const GameResults = (props: any) => {
       {title}
     </td>
   ));
+  const summResult = [...issueVotingData].reduce((sum, current) => {
+    let curNum = parseInt(current.userVote);
+    if (!isNaN(curNum)) return sum + curNum;
+  }, 0);
+  const average = summResult/issueVotingData.length;
   const numberOfVoters = props.usersList.length;
   const avgRow = [...cardTitles].map((title: string) => {
     let avgCount = 0;
@@ -58,6 +63,7 @@ const GameResults = (props: any) => {
                 <tr>{avgRow}</tr>
               </tbody>
             </table>
+            <h3>{`Average Story Point for Issue ${props.activeIssue} is ${average}`}</h3>
           </div>
         </>
       )}
