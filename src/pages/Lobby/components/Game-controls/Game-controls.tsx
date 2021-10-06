@@ -4,10 +4,11 @@ import { useHistory } from "react-router-dom";
 
 import Button from "../Button/Button";
 import { isCurrentDealer } from "../../../../utils";
+import { socket } from "../../../../App";
 
 import "./Game-controls.css";
 
-const GameControls = ({ socket, issues, cards, currentUser }: any) => {
+const GameControls = ({ issues, cards, currentUser }: any) => {
   const history = useHistory();
   const startGame = () => {
     socket.emit("gameSettings", {
@@ -17,13 +18,17 @@ const GameControls = ({ socket, issues, cards, currentUser }: any) => {
     history.push("/game");
   };
 
+  const handleCancelGame = () => {
+    socket.emit("gameCanceled");
+  }
+
   return (
     <div className="game-controls">
       {isCurrentDealer(currentUser) && (
         <Button text="Start game" class="blue-btn" onAction={startGame} />
       )}
       {isCurrentDealer(currentUser) && (
-        <Button text="Cancel game" class="white-btn" />
+        <Button text="Cancel game" class="white-btn" onAction={handleCancelGame} />
       )}
       {!isCurrentDealer(currentUser) && (
         <Button text="Exit" class="white-btn" />

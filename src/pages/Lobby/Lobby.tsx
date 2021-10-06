@@ -49,6 +49,10 @@ const Lobby = ({
     addCurrentUser(updatedUser);
   });
 
+  socket.on('gameCanceled', () => {
+    history.push('/');
+  })
+
   socket.on("startGame", ({ cards, issues }: any) => {
     updateCardsList(cards);
     updateIssuesList(issues);
