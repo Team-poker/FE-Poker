@@ -1,0 +1,23 @@
+.header-wrapper {
+  max-width: 100vw;
+}
+.header-background {
+    background-color: #2B3A67;
+    max-width: 100vw;
+    height: 50px;
+    z-index: 1;
+  }
+
+.header-color {
+    background-color: #66999B;
+    width: 100%;
+    height: 20px;
+   z-index: 1;
+  }
+.header-logo {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 30px;
+  left: 50px;
+}

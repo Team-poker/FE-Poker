@@ -1,0 +1,28 @@
+.form {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+
+  &_input {
+    width: 345px;
+    min-height: 25px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border-width: 1px;
+
+  }
+
+  &_submit_btn {
+    height: 25px;
+    margin-left: 5px;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: #2B3A67;
+    color: #fff;
+  }
+
+  &_group {
+    display: flex;
+    align-items: center;
+  }
+}

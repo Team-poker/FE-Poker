@@ -1,0 +1,58 @@
+export const players = [
+  {
+    firstName: "Rick",
+    lastName: "Putin",
+    jobPosition: "Ingeneer",
+    gameRole: "player",
+    image: "",
+  },
+  {
+    firstName: "Nick",
+    lastName: "Braian",
+    jobPosition: "Tester",
+    gameRole: "player",
+    image: "",
+  },
+  {
+    firstName: "Carl",
+    lastName: "Luciano",
+    jobPosition: "Project Manager",
+    gameRole: "dealer",
+    image: "",
+  },
+  {
+    firstName: "Vasilisa",
+    lastName: "Ivanova",
+    jobPosition: "Analyst",
+    gameRole: "player",
+    image: "",
+  },
+  {
+    firstName: "Kate",
+    lastName: "Middleton",
+    jobPosition: "Ingeneer",
+    gameRole: "player",
+    image: "",
+  },
+  {
+    firstName: "Alexander",
+    lastName: "Alexander",
+    jobPosition: "Ingeneer",
+    gameRole: "player",
+    image: "",
+  },
+  {
+    firstName: "Coralla",
+    lastName: "Covid",
+    jobPosition: "Ingeneer",
+    gameRole: "player",
+    image: "",
+  },
+  {
+    firstName: "Lera",
+    lastName: "Putin",
+    jobPosition: "Ingeneer",
+    gameRole: "player",
+    image: "",
+  },
+];

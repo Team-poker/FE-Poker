@@ -1,0 +1,66 @@
+.settings-main {
+  font-family: Ruda, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 54px;
+}
+.scrum-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.game-title,
+.game-cards,
+.game-timer,
+.game-score,
+.game-type,
+.game-round {
+  font-family: Ruda, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-around;
+  color: #000000;
+  margin-bottom: 20px;
+  margin-right: 90px;
+}
+.game-round {
+  margin-bottom: 60px;
+}
+
+.switch-game {
+  display: flex;
+  margin-top: -10px;
+}
+.input-game {
+  display: inline-block;
+  margin-right: 370px;
+  margin-top: -10px;
+  width: 345px;
+  height: 33px;
+  background: #FFFFFF;
+  border: 1px solid #2B3A67;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 0px 10px;
+}
+.input-range {
+  display: inline-block;
+  cursor: pointer;
+  width: 180px;
+}
+.bubble {
+  position: absolute;
+  left: 400px;
+  top: 0px;
+}
+.game-round {
+position: relative;
+}

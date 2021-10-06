@@ -1,0 +1,11 @@
+.game-link {
+  margin-bottom: 2rem;
+  & h2 {
+    font-style: italic;
+  }
+}
+
+.link input {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

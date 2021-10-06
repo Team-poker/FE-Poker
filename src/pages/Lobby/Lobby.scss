@@ -1,0 +1,28 @@
+.lobby {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: 70vw;
+  margin: 0 auto;
+  font-family: Ruda, sans-serif;
+  transition: all 1s ease;
+}
+.chat-open {
+  width: 45vw;
+  transform: translateX(-180px);
+  border-right: 1px solid black;
+  padding-right: 30px;
+}
+
+.lobby-main {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+

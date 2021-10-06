@@ -1,0 +1,31 @@
+.header-dark {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: #2b3a67;
+}
+
+.header-light {
+  height: 20px;
+  width: 100%;
+  background-color: #66999b;
+}
+
+.header-logo {
+  position: absolute;
+  border-color: transparent;
+  top: 1rem;
+  left: 2rem;
+}
+
+.chat-btn {
+  z-index: 10;
+  margin-right: 40px;
+  cursor: pointer;
+  width: 20px;
+  height: 14px;
+  background: url(../../../../../src/assets/svg/chat-ico.svg);
+}

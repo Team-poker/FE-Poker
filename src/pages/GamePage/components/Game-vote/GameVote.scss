@@ -1,0 +1,27 @@
+.game-vote {
+  position: fixed;
+  right: 15px;
+  top: 80px;
+  width: 360px;
+  max-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+  transition: all 1s ease;
+}
+
+.open-chat {
+  border-top: 1px solid black;
+  top: calc(80px + 49vh);
+}
+
+.voting-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  & div {
+    font-weight: 700;
+  }
+}

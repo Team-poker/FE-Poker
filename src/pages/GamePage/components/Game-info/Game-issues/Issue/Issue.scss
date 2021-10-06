@@ -1,0 +1,11 @@
+.game-issue {
+  cursor: pointer;
+  & img {
+    width: 1.5rem;
+    height: auto;
+  }
+}
+
+.game-issue_active {
+  background-color: #60dabf;
+}
