@@ -15,6 +15,8 @@ import { IUser } from "../../ts/interfaces/app_interfaces";
 const MainPage = ({ socket, addCurrentUser, setInitialUsersList }: any) => {
   const history = useHistory();
 
+  localStorage.clear();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobPosition, setJobPosition] = useState("");
