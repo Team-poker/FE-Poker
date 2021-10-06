@@ -130,10 +130,10 @@ export const createPlayer = (isDealerPlayer: boolean) => {
   }
 }
 
-export const createTimer = (timer: ITimer) => {
+export const createTimer = (time: ITimer) => {
   return {
     type: CREATE_TIMER,
-    payload: timer,
+    payload: time,
   }
 }
 export const createTimerSettings = (isTimerSet: boolean) => {

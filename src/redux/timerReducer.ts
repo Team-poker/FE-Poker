@@ -1,11 +1,11 @@
-import {number} from "prop-types";
+
 import {ICreateTimer} from "../ts/interfaces/app_interfaces";
 import {CREATE_TIMER} from "./types";
 
 const initialState = {
-    time: number,
-    minutes: number,
-    seconds: number
+    time: 60,
+    minutes: 1,
+    seconds: 0
 }
 export const timerReducer = (state = initialState, action: ICreateTimer) => {
     switch(action.type) {

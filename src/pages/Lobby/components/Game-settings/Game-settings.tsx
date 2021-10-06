@@ -3,7 +3,7 @@ import Cards from "../Card/Card";
 import './Game-settings.scss';
 import Switch from "../../../../components/Switch/Switch";
 import {connect} from "react-redux";
-import {createPlayer, createTimerSettings} from "../../../../redux/actions";
+import {createPlayer, createTimer, createTimerSettings} from "../../../../redux/actions";
 
 
 const GameSettings = ( props: any, {isDealerPlayer} : any) => {
@@ -23,6 +23,10 @@ const GameSettings = ( props: any, {isDealerPlayer} : any) => {
     const chooseTimer = () => {
         props.createTimerSettings(true);
     }
+    const getTimer = () => {
+
+        props.createTimer(value);
+    }
     return (
         <>
             <h3 className="settings-main">Game settings:</h3>
@@ -33,7 +37,7 @@ const GameSettings = ( props: any, {isDealerPlayer} : any) => {
                     </span>
                 </div>
                 <div className="game-timer">Is timer needed: <span className="switch-game" onChange={chooseTimer}><Switch props="third-switch" /> </span></div>
-                <div className="game-round">Round time(minutes):<span className="input"><input className="input-range" type="range" value={value}
+                <div className="game-round">Round time(minutes):<span className="input" onChange={getTimer}><input className="input-range" type="range" value={value}
                                                                     name="1" min="1" max="5" step=".5"
                                                                     onChange={({target: {value: radius}}) => {
                                                                         onChange(radius);
@@ -53,11 +57,13 @@ const mapStateToProps = (state: any) => {
     return {
         isDealerPlayer: state.isDealerPlayer,
         isTimerSet: state.isTimerSet,
+        timer: state.timer,
     }
 }
 const mapDispatchToProps = {
     createPlayer,
     createTimerSettings,
+    createTimer,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameSettings);
