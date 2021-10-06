@@ -63,7 +63,7 @@ const Lobby = ({
       <Header />
       <main className="lobby-main">
         <div className={!isChatOpen ? "wrapper" : "wrapper chat-open"}>
-          <LobbyTitle />
+          <LobbyTitle isAvailableToEdit={true} />
           {usersList && isDealerPresent(usersList) && <ScrumMasterBlock />}
           {/*<GameLink />*/}
           <GameControls socket={socket} />

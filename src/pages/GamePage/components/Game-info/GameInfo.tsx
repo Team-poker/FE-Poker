@@ -11,7 +11,7 @@ import GameResults from "./Game-results/Game-results";
 const GameInfo = (socket: any) => {
   return (
     <div className="game-info">
-      <GameTitle />
+      <GameTitle isAvailableToEdit={false}/>
       <GameState />
       <section className="game-flow">
         <GameIssues socket={socket} />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
+import { socket } from "../../../../App";
 import { editTitle } from "../../../../redux/actions";
 import { isCurrentDealer } from "../../../../utils";
 
@@ -22,9 +23,14 @@ const LobbyTitle = (props: any) => {
 
   const handleTitleConfirm = (e: any) => {
     e.preventDefault();
+    socket.emit('updateTitle', enteredValue);
     props.editTitle(enteredValue);
     setIsEditing(false);
   };
+
+  socket.on('updateTitle', (newTitle: string) => {
+    props.editTitle(enteredValue);
+  });
 
   const handleTitleReset = (e: any) => {
     e.preventDefault();
@@ -37,7 +43,7 @@ const LobbyTitle = (props: any) => {
       {!isEditing && (
         <>
           <h1 className="lobby-title">{props.title}</h1>
-          {isCurrentDealer(props.currentUser) && (
+          {isCurrentDealer(props.currentUser) && props.isAvailableToEdit && (
             <span className="edit-title" onClick={handleTitleEdit}>
               <img
                 src={require("../../../../../public/pen.svg")}
