@@ -6,7 +6,6 @@ import Footer from "../Lobby/components/Footer/Footer";
 import GameInfo from "./components/Game-info/GameInfo";
 import GameVote from "./components/Game-vote/GameVote";
 import Button from "../Lobby/components/Button/Button";
-import Card, {Cards} from "../Lobby/components/Card/Card";
 // import GameTimer from "./components/Game-info/Game-state/Game-timer/Game-timer";
 import { IVote } from "../../ts/interfaces/app_interfaces";
 import { addCurrentUser, addNewVote, setInitialUsersList } from "../../redux/actions";
@@ -50,9 +49,6 @@ const GamePage = (props: any) => {
               <div className="game-wrapper">
                   {/*<GameTimer time={425} />*/}
                   <GameInfo />
-                  {props.activeIssue.length > 0 && <div className="cards-game">
-                      <Card isEditable={false} />
-                  </div>}
               </div>
               {/* <Button
               type="submit"
@@ -72,7 +68,6 @@ const GamePage = (props: any) => {
 const mapStateToProps = (state: any) => {
   return {
     cards: state.cards,
-    activeIssue: state.activeIssue,
   };
 };
 
