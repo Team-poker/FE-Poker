@@ -1,8 +1,8 @@
 import {
   ADD_VOTE,
   CREATE_CARDS,
-  CREATE_ISSUE,
-  CREATE_RESULT,
+  CREATE_ISSUE, CREATE_PLAYER,
+  CREATE_RESULT, CREATE_TIMER,
   EDIT_CARD_TITLE,
   EDIT_TITLE,
   SET_ACTIVE_ISSUE,
@@ -11,6 +11,7 @@ import {
   SET_USERSLIST,
   UPDATE_USERSLIST,
 } from "src/redux/types.ts";
+import {CREATE_TIMER_SETTINGS} from "src/redux/types";
 
 export interface IState {
   messages?: Array<IMessage>;
@@ -71,10 +72,20 @@ export interface IVote {
   userVote: string,
 }
 
+// export interface ITimer {
+//   time: number;
+//   minutes: number;
+//   seconds: number;
+// }
+
 export interface IResult {
   id: string;
   title: string;
   score: string;
+}
+
+export interface IDealerPlayer {
+  isDealerPlayer: boolean;
 }
 
 //Actions:
@@ -121,4 +132,17 @@ export interface ISetActiveIssue {
 export interface IAddVote {
   type: typeof ADD_VOTE;
   payload: IVote;
+}
+export interface ICreatePlayer {
+  type: typeof CREATE_PLAYER;
+  payload: boolean;
+}
+
+export interface ICreateTimerSettings {
+  type: typeof CREATE_TIMER_SETTINGS ;
+  payload: boolean;
+}
+export interface ICreateTimer {
+  type: typeof CREATE_TIMER;
+  payload: number;
 }

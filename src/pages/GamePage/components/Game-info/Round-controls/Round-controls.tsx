@@ -5,7 +5,7 @@ import Button from "../../../../Lobby/components/Button/Button";
 import "./Round-controls.scss";
 import GameTimer from "../Game-state/Game-timer/Game-timer";
 
-const RoundControls = () => {
+const RoundControls = (props: any) => {
   //TODO Переделаю на useState
   const isNewRound = false;
 
@@ -20,7 +20,7 @@ const RoundControls = () => {
       {!isNewRound && (
         <>
           <div className="reset-round-control">
-            <GameTimer time={405} />
+            <GameTimer time={300} />
             <Button class="blue-btn" text="Restart Round" />
           </div>
           <Button class="blue-btn" text="Next Issue" />

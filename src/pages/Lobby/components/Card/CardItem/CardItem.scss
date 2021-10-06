@@ -9,20 +9,18 @@
     box-shadow: 0 0.5rem 1rem grey;
   }
 }
+
+.card-item.active {
+  background-color: #60dabf;
+  transform: translateZ(3rem);
+}
+
 .main-card__image {
-  //background-image: url("../../../../../../public/cup.svg");
   height: 50px;
   width: 50px;
   margin: 25px;
 }
-//.sp-card {
-//  background-image: url("../../../../../../public/SP.svg");
-//  height: 50px;
-//  width: 50px;
-//  background-position: center;
-//  background-size: contain;
-//  background-repeat: no-repeat;
-//}
+
 .pen-card  {
   display: inline-block;
   background-image: url("../../../../../../public/pen.svg");

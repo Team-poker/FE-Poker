@@ -9,6 +9,8 @@ import { resultReducer } from "./resultREducer";
 import { usersReducer } from "./usersReducer";
 import { currentIssueReducer } from "./currentIssueReducer";
 import {votesReducer} from "./votesReducer";
+import {settingsReducer} from "./settingsReducer";
+import {timerReducer} from "./timerReducer";
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -21,6 +23,9 @@ const rootReducer = combineReducers({
   result: resultReducer,
   activeIssue: currentIssueReducer,
   votes: votesReducer,
+  isDealerPlayer: settingsReducer,
+  isTimerSet: settingsReducer,
+  time: timerReducer,
 });
 
 export default rootReducer;

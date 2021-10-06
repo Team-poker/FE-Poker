@@ -5,7 +5,7 @@ import {
   IIssue,
   IEditCard,
   IResult,
-  IVote,
+  IVote, IDealerPlayer,
 } from "../ts/interfaces/app_interfaces";
 
 import {
@@ -22,7 +22,7 @@ import {
   SET_ISSUESLIST,
   SET_CARDSLIST,
   SET_ACTIVE_ISSUE,
-  ADD_VOTE,
+  ADD_VOTE, CREATE_PLAYER, CREATE_TIMER, CREATE_TIMER_SETTINGS,
 } from "./types";
 
 export const createMessage = (message: IMessage) => {
@@ -120,5 +120,25 @@ export const addNewVote = (vote: Array<IVote>) => {
   return {
     type: ADD_VOTE,
     payload: vote,
+  }
+}
+
+export const createPlayer = (isDealerPlayer: boolean) => {
+  return {
+    type: CREATE_PLAYER,
+    payload: isDealerPlayer,
+  }
+}
+
+export const createTimer = (time: number) => {
+  return {
+    type: CREATE_TIMER,
+    payload: time,
+  }
+}
+export const createTimerSettings = (isTimerSet: boolean) => {
+  return {
+    type: CREATE_TIMER_SETTINGS,
+    payload: isTimerSet,
   }
 }
