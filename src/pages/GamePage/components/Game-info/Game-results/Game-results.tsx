@@ -35,7 +35,6 @@ const GameResults = (props: any) => {
   const avgRow = [...cardTitles].map((title: string) => {
     let avgCount = 0;
     for (let i = 0; i < issueVotingData.length; i++) {
-      console.log(issueVotingData[i]);
       if (title === issueVotingData[i].userVote) avgCount++;
     }
     return (

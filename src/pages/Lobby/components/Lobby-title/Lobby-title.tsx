@@ -28,8 +28,8 @@ const LobbyTitle = (props: any) => {
     setIsEditing(false);
   };
 
-  socket.on('updateTitle', (newTitle: string) => {
-    props.editTitle(enteredValue);
+  socket.on('editTitle', (newTitle: string) => {
+    props.editTitle(newTitle);
   });
 
   const handleTitleReset = (e: any) => {
