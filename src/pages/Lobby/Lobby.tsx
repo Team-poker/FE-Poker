@@ -67,7 +67,7 @@ const Lobby = ({
           {usersList && isDealerPresent(usersList) && <ScrumMasterBlock />}
           {/*<GameLink />*/}
           <GameControls socket={socket} />
-          <IssuesList />
+          {isCurrentDealer(currentUser) && <IssuesList />}
           <MembersList socket={socket} />
           {isCurrentDealer(currentUser) && <GameSettings />}
         </div>

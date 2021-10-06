@@ -6,9 +6,9 @@ import GameIssues from "./Game-issues/Game-issues";
 import RoundControls from "./Round-controls/Round-controls";
 
 import "./GameInfo.scss";
-import { connect } from "react-redux";
-import Card from "../../../Lobby/components/Card/Card";
+import GameResults from "./Game-results/Game-results";
 import { socket } from "../../../../App";
+import Card from "../../../Lobby/components/Card/Card";
 
 const GameInfo = ({activeIssue}: any) => {
   return (
@@ -21,7 +21,9 @@ const GameInfo = ({activeIssue}: any) => {
                       <Card isEditable={false} />
                   </div>}
         <RoundControls />
+        <GameResults />
       </section>
+      <RoundControls />
       {/* <Statistics /> */}
     </div>
   );
