@@ -13,7 +13,7 @@ import Card from "../../../Lobby/components/Card/Card";
 const GameInfo = ({activeIssue}: any) => {
   return (
     <div className="game-info">
-      <GameTitle />
+      <GameTitle isAvailableToEdit={false}/>
       <GameState />
       <section className="game-flow">
         <GameIssues socket={socket} />
