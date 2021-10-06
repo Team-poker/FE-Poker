@@ -33,6 +33,8 @@ const IssueModal = (props: any) => {
       link: enteredIssueLink,
     };
     props.createIssue(newIssue);
+    setEnteredIssueTitle('');
+    setEnteredIssueLink('');
   };
 
   return (
@@ -45,11 +47,12 @@ const IssueModal = (props: any) => {
             type="text"
             name="issueTitle"
             onInput={handleIssueTitleInput}
+            value={enteredIssueTitle}
           />
         </div>
         <div>
           <label htmlFor="issueLink">Link</label>
-          <input type="text" name="issueLink" onInput={handleIssueLinkInput} />
+          <input type="text" name="issueLink" onInput={handleIssueLinkInput} value={enteredIssueLink} />
         </div>
         <div>
           <label htmlFor="issuePriority">Priority</label>
@@ -64,8 +67,8 @@ const IssueModal = (props: any) => {
           </select>
         </div>
         <div className="create-issue-buttons">
-          <Button type="submit" text="Yes" class="blue-btn" />
-          <Button type="reset" text="No" class="white-btn" />
+          <Button type="submit" text="Save" class="blue-btn" />
+          {/* <Button type="reset" text="Cancel" class="white-btn" /> */}
         </div>
       </form>
     </div>
