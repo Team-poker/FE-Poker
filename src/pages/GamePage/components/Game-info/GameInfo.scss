@@ -1,3 +1,9 @@
 .game-info {
   width: 60vw;
 }
+
+.game-flow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}

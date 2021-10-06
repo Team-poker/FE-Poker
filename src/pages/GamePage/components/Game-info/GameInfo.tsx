@@ -17,7 +17,7 @@ const GameInfo = (socket: any) => {
         <GameIssues socket={socket} />
         <GameResults />
       </section>
-      <RoundControls />
+      {/* <RoundControls /> */}
       {/* <Statistics /> */}
     </div>
   );
